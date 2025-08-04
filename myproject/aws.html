@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWS Services Guide☁️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #eaf3fc;
+      color: #333;
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background: #1a1a1a;
+      color: #eee;
+    }
+
+    header {
+      background: linear-gradient(90deg, #1e2a38, #2d3e50);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .toggle-buttons {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .toggle-buttons button {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #f0f0f0;
+      color: #333;
+      transition: 0.3s;
+    }
+
+    .toggle-buttons button:hover {
+      background: #ddd;
+    }
+
+    #searchInput {
+      margin: 20px auto 0;
+      display: block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .section {
+      padding: 40px 30px;
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+      transition: 0.3s ease;
+      animation: fadeInUp 0.9s ease;
+    }
+
+    .dark-mode .section {
+      background: #2e2e2e;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+      color: #1a73e8;
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .steps {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .steps li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #1e2a38;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.95rem;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        font-size: 1.5rem;
+        padding: 30px 10px;
+      }
+      .toggle-buttons {
+        top: 10px;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    ☁️ AWS Services Quick Guide by Arpit Kukadiya 🚀
+    <div class="toggle-buttons">
+      <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="downloadPDF()">📥 Download PDF</button>
+    </div>
+  </header>
+
+  <input type="text" id="searchInput" onkeyup="filterSections()" placeholder="🔍 Search a service...">
+
+  <div id="content">
+    <!-- EC2 -->
+    <div class="section">
+      <h2>🖥️ EC2 (Elastic Compute Cloud)</h2>
+      <p>Run virtual machines in the cloud.</p>
+      <ul class="steps">
+        <li>Login → EC2 → Launch Instance</li>
+        <li>Select AMI, Instance Type</li>
+        <li>Configure & Launch</li>
+        <li>SSH into instance 🔐</li>
+      </ul>
+    </div>
+
+    <!-- S3 -->
+    <div class="section">
+      <h2>📦 S3 (Simple Storage Service)</h2>
+      <p>Object storage for data, images, files, etc.</p>
+      <ul class="steps">
+        <li>Create Bucket</li>
+        <li>Set Permissions</li>
+        <li>Upload Files 📁</li>
+        <li>Enable Public/Private Access</li>
+      </ul>
+    </div>
+
+    <!-- Add more AWS services here -->
+    <div class="section">
+      <h2>🛢️ RDS (Relational Database Service)</h2>
+      <p>Managed MySQL, PostgreSQL, etc. in cloud.</p>
+      <ul class="steps">
+        <li>Create DB → Choose Engine</li>
+        <li>Set credentials & instance size</li>
+        <li>Connect using endpoint</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>⚙️ Lambda (Serverless)</h2>
+      <p>Run code without managing servers.</p>
+      <ul class="steps">
+        <li>Create Function → Choose Runtime</li>
+        <li>Add Trigger (e.g., S3, API Gateway)</li>
+        <li>Deploy and Test ⚡</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🌐 CloudFront (CDN)</h2>
+      <p>Deliver content globally with low latency.</p>
+      <ul class="steps">
+        <li>Create Distribution</li>
+        <li>Choose origin (S3/EC2)</li>
+        <li>Get CDN URL 🌍</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🔐 IAM (Identity & Access Management)</h2>
+      <p>Securely manage users & permissions.</p>
+      <ul class="steps">
+        <li>Go to IAM → Add User</li>
+        <li>Attach Permissions (Policy)</li>
+        <li>Enable MFA for security</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📊 CloudWatch (Monitoring)</h2>
+      <p>Monitor AWS resources in real time.</p>
+      <ul class="steps">
+        <li>Enable metrics for services</li>
+        <li>Create Alarms & Logs</li>
+        <li>Set up Notifications</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🌍 Route 53 (DNS)</h2>
+      <p>Manage domain names & routing.</p>
+      <ul class="steps">
+        <li>Register Domain or Use Existing</li>
+        <li>Create Hosted Zone</li>
+        <li>Add A/AAAA/CNAME Records</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📡 API Gateway</h2>
+      <p>Create and manage REST or WebSocket APIs.</p>
+      <ul class="steps">
+        <li>Create API → Choose Protocol</li>
+        <li>Define Resources & Methods</li>
+        <li>Integrate with Lambda or EC2</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📁 EFS (Elastic File System)</h2>
+      <p>Scalable file storage for Linux workloads.</p>
+      <ul class="steps">
+        <li>Create File System</li>
+        <li>Mount on EC2</li>
+        <li>Access like local disk 📂</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    Made with ❤️ by Arpit Kukadiya | Powered by AWS ☁️
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function filterSections() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const sections = document.querySelectorAll(".section");
+      sections.forEach(section => {
+        const text = section.innerText.toLowerCase();
+        section.style.display = text.includes(input) ? "block" : "none";
+      });
+    }
+
+    function downloadPDF() {
+      const content = document.getElementById("content").innerText;
+      const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "aws_services_guide.txt";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>

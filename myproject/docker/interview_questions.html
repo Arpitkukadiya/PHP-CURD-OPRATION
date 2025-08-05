@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🧠 Docker Interview Questions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f4ff, #ffffff);
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #0d6efd;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px #ccc;
+    }
+    .question-box {
+      background: #ffffff;
+      border: 1px solid #dee2e6;
+      border-left: 6px solid #0d6efd;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      transition: transform 0.2s ease;
+    }
+    .question-box:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    .question-box h5 {
+      font-weight: bold;
+      color: #003366;
+      display: flex;
+      align-items: center;
+    }
+    .question-box h5::before {
+      content: '❓';
+      margin-right: 10px;
+    }
+    .question-box p {
+      margin-top: 12px;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+      transition: 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #084298;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Docker & DevOps Interview Questions</h1>
+
+  <div class="question-box">
+    <h5>1️⃣ What is Docker and how does it differ from virtual machines?</h5>
+    <p><strong>Answer:</strong> Docker is a containerization platform that packages applications and their dependencies in containers. Unlike VMs, Docker containers share the host OS kernel and are lightweight and faster.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>2️⃣ What is the difference between a Docker image and a container?</h5>
+    <p><strong>Answer:</strong> An image is a read-only template used to create containers. A container is a running instance of an image.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>3️⃣ How do you share data between containers?</h5>
+    <p><strong>Answer:</strong> Using Docker volumes or bind mounts, containers can share persistent storage and communicate through it.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>4️⃣ What is Docker Compose?</h5>
+    <p><strong>Answer:</strong> Docker Compose is a tool to define and manage multi-container applications using a YAML file.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>5️⃣ Explain Docker Swarm and how it works.</h5>
+    <p><strong>Answer:</strong> Docker Swarm is a native clustering tool for Docker. It turns multiple Docker hosts into a single virtual host and allows deploying services across nodes with built-in load balancing.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>6️⃣ What is the use of the <code>Dockerfile</code>?</h5>
+    <p><strong>Answer:</strong> A Dockerfile is a script with a set of instructions to build a Docker image automatically.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>7️⃣ How do you monitor containers in production?</h5>
+    <p><strong>Answer:</strong> Use tools like Prometheus, Grafana, ELK Stack, or Docker stats and logs to monitor container health and performance.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>8️⃣ What are some best practices when working with Docker?</h5>
+    <p><strong>Answer:</strong> Keep images small, use multi-stage builds, clean up unused containers/images, use `.dockerignore`, tag images clearly, and scan images for vulnerabilities.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>9️⃣ What is the difference between ENTRYPOINT and CMD in Dockerfile?</h5>
+    <p><strong>Answer:</strong> <code>CMD</code> sets default arguments for the container’s main process, while <code>ENTRYPOINT</code> defines the executable. Together, they allow flexible container configuration.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>🔟 How do you ensure security in Docker?</h5>
+    <p><strong>Answer:</strong> Use minimal base images, apply image scanning, run containers as non-root users, use Docker Bench for security, and regularly update images.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>1️⃣1️⃣ What is multi-stage build in Docker?</h5>
+    <p><strong>Answer:</strong> A multi-stage build allows using multiple FROM statements in a Dockerfile to create smaller, production-ready images by copying only required artifacts from a build stage.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>1️⃣2️⃣ How does networking work in Docker?</h5>
+    <p><strong>Answer:</strong> Docker creates a bridge network by default. Containers on the same bridge network can communicate via container name. You can also use overlay networks in swarm mode.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>1️⃣3️⃣ What is the difference between COPY and ADD in Dockerfile?</h5>
+    <p><strong>Answer:</strong> <code>COPY</code> simply copies files and directories. <code>ADD</code> does the same but also supports remote URLs and automatically unpacks compressed files.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>1️⃣4️⃣ How can you persist data generated by and used by Docker containers?</h5>
+    <p><strong>Answer:</strong> Use Docker volumes or bind mounts to persist data. Volumes are managed by Docker and are the preferred mechanism for persistent data.</p>
+  </div>
+
+  <div class="question-box">
+    <h5>1️⃣5️⃣ What are some common Docker commands used in day-to-day work?</h5>
+    <p><strong>Answer:</strong> <code>docker ps</code>, <code>docker run</code>, <code>docker exec</code>, <code>docker logs</code>, <code>docker-compose up/down</code>, <code>docker build</code>, <code>docker images</code>, and <code>docker network ls</code>.</p>
+  </div>
+
+  <!-- Keep the same <head> and <style> as in your original -->
+<!-- Add the following new questions inside <body>, after the existing .question-box blocks -->
+
+<div class="question-box">
+  <h5>1️⃣6️⃣ What is Docker and why is it used?</h5>
+  <p><strong>Answer:</strong> Docker is a containerization platform used to package applications and their dependencies together in isolated containers. It ensures consistent environments from development to production and improves deployment speed and scalability.</p>
+</div>
+
+<div class="question-box">
+  <h5>1️⃣7️⃣ What is the difference between Docker and a Virtual Machine?</h5>
+  <p><strong>Answer:</strong> Docker containers share the host OS kernel and are lightweight, starting instantly. VMs emulate entire OS environments including hardware, making them heavier and slower to boot.</p>
+</div>
+
+<div class="question-box">
+  <h5>1️⃣8️⃣ Explain Docker architecture.</h5>
+  <p><strong>Answer:</strong> Docker architecture includes the Docker Client (CLI), Docker Daemon (Server), Docker Images, Docker Containers, and Docker Registries (like DockerHub). The client communicates with the daemon to build, run, and manage containers.</p>
+</div>
+
+<div class="question-box">
+  <h5>1️⃣9️⃣ What is the role of Docker Daemon?</h5>
+  <p><strong>Answer:</strong> The Docker Daemon (`dockerd`) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣0️⃣ What’s the difference between image and container?</h5>
+  <p><strong>Answer:</strong> An image is a static blueprint or template. A container is a live, running instance of that image with a writable layer.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣1️⃣ How to create and run a container?</h5>
+  <p><strong>Answer:</strong> Use <code>docker run image_name</code> to create and run a container. For example: <code>docker run -d -p 80:80 nginx</code></p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣2️⃣ What is a Dockerfile?</h5>
+  <p><strong>Answer:</strong> A Dockerfile is a text file with a set of instructions to build a Docker image, such as <code>FROM</code>, <code>COPY</code>, <code>RUN</code>, and <code>CMD</code>.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣3️⃣ What are common instructions in a Dockerfile?</h5>
+  <p><strong>Answer:</strong> Common instructions include <code>FROM</code> (base image), <code>COPY</code>, <code>ADD</code>, <code>RUN</code>, <code>CMD</code>, <code>ENTRYPOINT</code>, <code>EXPOSE</code>, and <code>WORKDIR</code>.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣4️⃣ What are volumes in Docker?</h5>
+  <p><strong>Answer:</strong> Volumes are storage mechanisms used to persist data generated and used by containers. They are managed by Docker and remain even after a container is deleted.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣5️⃣ Difference between bind mount and named volume?</h5>
+  <p><strong>Answer:</strong> Bind mounts map a specific host path to a container path. Named volumes are managed by Docker and stored in Docker’s internal volume directory. Named volumes are preferred for portability and ease of use.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣6️⃣ What is the use of Docker networks?</h5>
+  <p><strong>Answer:</strong> Docker networks enable communication between containers. Containers in the same network can connect using container names. Custom networks provide isolation and DNS-based discovery.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣7️⃣ How to connect multiple containers?</h5>
+  <p><strong>Answer:</strong> Create a custom bridge network with <code>docker network create</code> and run containers with <code>--network</code> flag. This allows them to communicate by name.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣8️⃣ What is Docker Compose?</h5>
+  <p><strong>Answer:</strong> Docker Compose is a tool to define and run multi-container applications using a <code>docker-compose.yml</code> file, making orchestration easy.</p>
+</div>
+
+<div class="question-box">
+  <h5>2️⃣9️⃣ How does docker-compose differ from docker run?</h5>
+  <p><strong>Answer:</strong> <code>docker run</code> is for single containers. <code>docker-compose</code> allows managing multiple services as a group using a YAML file, making multi-container setups easier.</p>
+</div>
+
+<div class="question-box">
+  <h5>3️⃣0️⃣ How do you publish Docker images?</h5>
+  <p><strong>Answer:</strong> Tag the image and push to a registry:<br>
+  <code>docker tag myapp username/myapp</code><br>
+  <code>docker push username/myapp</code></p>
+</div>
+
+<div class="question-box">
+  <h5>3️⃣1️⃣ What is a Docker Registry?</h5>
+  <p><strong>Answer:</strong> A Docker registry is a storage and distribution system for Docker images. Popular registries include DockerHub, GitHub Container Registry, and private registries.</p>
+</div>
+
+<div class="question-box">
+  <h5>3️⃣2️⃣ How does Docker fit into DevOps?</h5>
+  <p><strong>Answer:</strong> Docker simplifies application packaging and deployment, making CI/CD pipelines more consistent. It allows reproducible builds, isolated environments, and faster rollouts.</p>
+</div>
+
+<div class="question-box">
+  <h5>3️⃣3️⃣ Have you used Docker with CI/CD pipelines?</h5>
+  <p><strong>Answer:</strong> Yes, Docker is integrated into CI/CD tools like Jenkins, GitHub Actions, and GitLab CI to build, test, and deploy containerized apps in automated pipelines.</p>
+</div>
+
+<div class="question-box">
+  <h5>3️⃣4️⃣ What is Docker Swarm?</h5>
+  <p><strong>Answer:</strong> Docker Swarm is Docker’s native clustering and orchestration tool that manages multiple containers across hosts as a single cluster with built-in load balancing and failover.</p>
+</div>
+
+<div class="question-box">
+  <h5>3️⃣5️⃣ What is the difference between Docker Swarm and Kubernetes?</h5>
+  <p><strong>Answer:</strong> Docker Swarm is simpler and tightly integrated with Docker, while Kubernetes is more powerful and widely adopted for production-grade container orchestration, offering better scaling, monitoring, and ecosystem.</p>
+</div>
+
+
+  <div class="text-center mt-5">
+    <a href="index.html" class="btn btn-primary">⬅️ Back to Dashboard</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀 Docker Learning Path</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to right, #f4f7f8, #e6ecf0);
+      color: #333;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #1a73e8;
+      margin-bottom: 30px;
+      animation: slideDown 1s ease-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    h2 {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 5px;
+    }
+    h3 {
+      font-size: 1.4rem;
+      color: #0056b3;
+      margin-top: 20px;
+    }
+    code, pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 12px;
+      display: block;
+      border-left: 5px solid #66d9ef;
+      margin: 10px 0;
+      font-family: monospace;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+    ul, ol {
+      margin-left: 25px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: #fff;
+      margin-top: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      font-size: 1rem;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(90deg, #1a73e8, #00bcd4);
+      color: #fff;
+      font-weight: bold;
+    }
+    section {
+      margin-bottom: 60px;
+      animation: fadeIn 0.8s ease-in;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .btn {
+      background: linear-gradient(45deg, #1a73e8, #007bff);
+      color: white;
+      padding: 12px 24px;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: linear-gradient(45deg, #0056b3, #003f7f);
+    }
+  </style>
+</head>
+<body>
+  <h1>🐳 Docker Learning Path</h1>
+
+  <section>
+    <h2>1️⃣ Docker Learning Path (Step-by-Step)</h2>
+    <ol>
+      <li><strong>📌 Basics:</strong> What is Docker, Install Docker, Terminology</li>
+      <li><strong>🧱 Working with Containers:</strong> docker run, exec, logs</li>
+      <li><strong>🛠️ Images & Dockerfile:</strong> Build image, Dockerfile instructions</li>
+      <li><strong>📂 Volumes:</strong> Anonymous, Named, Host</li>
+      <li><strong>🌐 Networks:</strong> Bridge, Host, Overlay</li>
+      <li><strong>⚙️ Docker Compose:</strong> Multi-container setup</li>
+      <li><strong>💻 Development:</strong> Using Docker for local development</li>
+      <li><strong>📤 DockerHub:</strong> Push/Pull images</li>
+      <li><strong>🌀 Docker Swarm (optional)</strong></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>2️⃣ Important Topics</h2>
+    <table>
+      <tr><th>📚 Category</th><th>📝 Topics</th></tr>
+      <tr><td>Core Concepts</td><td>Image vs Container, Dockerfile, Lifecycle</td></tr>
+      <tr><td>Docker CLI</td><td>run, exec, build, commit, volume, network</td></tr>
+      <tr><td>Dockerfile</td><td>FROM, RUN, CMD, COPY, ENTRYPOINT</td></tr>
+      <tr><td>Volumes</td><td>Data persistence with -v</td></tr>
+      <tr><td>Docker Compose</td><td>Multi-container apps</td></tr>
+      <tr><td>Networking</td><td>Exposing ports, container communication</td></tr>
+      <tr><td>Best Practices</td><td>Optimizing image size</td></tr>
+      <tr><td>Debugging</td><td>logs, exec, inspect</td></tr>
+      <tr><td>Deployment</td><td>Push to DockerHub, CI/CD</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>3️⃣ Docker Interview Questions</h2>
+    <h3>👶 Beginner</h3>
+    <ul>
+      <li>What is Docker?</li>
+      <li>Difference between image and container?</li>
+      <li>How to create a Docker container?</li>
+      <li>What is Dockerfile?</li>
+      <li>Difference between CMD and ENTRYPOINT?</li>
+    </ul>
+    <h3>🧑 Intermediate</h3>
+    <ul>
+      <li>How to persist data?</li>
+      <li>Explain Docker volumes.</li>
+      <li>What is Docker Compose?</li>
+      <li>How do containers communicate?</li>
+      <li>How to debug a container?</li>
+    </ul>
+    <h3>🧙 Advanced</h3>
+    <ul>
+      <li>Explain multi-stage build.</li>
+      <li>What is Docker Swarm?</li>
+      <li>How to optimize image size?</li>
+      <li>Layered architecture in Docker images?</li>
+      <li>How Docker handles internal networking?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4️⃣ Live Practical Examples</h2>
+    <h3>🚀 Run Nginx</h3>
+    <pre><code>docker run -d -p 8080:80 nginx</code></pre>
+
+    <h3>🛠️ Dockerfile for Node App</h3>
+    <pre><code>FROM node:18
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["node", "app.js"]</code></pre>
+    <pre><code>docker build -t my-node-app .
+docker run -d -p 3000:3000 my-node-app</code></pre>
+
+    <h3>⚙️ Docker Compose (Node + Mongo)</h3>
+    <pre><code>version: "3"
+services:
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"</code></pre>
+    <pre><code>docker-compose up --build</code></pre>
+
+    <h3>📂 Volume Mount</h3>
+    <pre><code>docker run -v mydata:/data busybox sh -c "echo Hello > /data/hello.txt"
+docker run -v mydata:/data busybox cat /data/hello.txt</code></pre>
+
+    <h3>🌐 Custom Network</h3>
+    <pre><code>docker network create mynet
+docker run -d --name db --network mynet mongo
+docker run -it --network mynet mongo mongo --host db</code></pre>
+  </section>
+
+  <section>
+    <h2>5️⃣ Resources</h2>
+    <ul>
+      <li><a href="https://labs.play-with-docker.com/" target="_blank">🧪 Play with Docker</a></li>
+      <li><a href="https://docs.docker.com/get-started/" target="_blank">📘 Docker Official Docs</a></li>
+      <li><a href="https://hub.docker.com/" target="_blank">📦 DockerHub</a></li>
+    </ul>
+  </section>
+
+  <div class="text-center mt-4">
+    <a href="index.html" class="btn">⬅️ Back to Topics</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vacancy Management</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    .sidebar {
+      background-color: #333;
+      color: #eee;
+      width: 250px;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+    }
+    .sidebar h4 {
+      color: #ff79c6;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+    .sidebar a {
+      color: #f8f8f2;
+      text-decoration: none;
+      display: block;
+      padding: 12px 10px;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+      transition: background-color 0.3s;
+      font-size: 1.1rem;
+    }
+    .sidebar a:hover {
+      background-color: #44475a;
+      color: #50fa7b;
+    }
+
+    .content {
+      margin-left: 270px;
+      padding: 40px;
+    }
+    .content h1 {
+      font-size: 2.5rem;
+      color: #1a73e8;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .content p {
+      font-size: 1.2rem;
+      color: #5f6368;
+      text-align: center;
+    }
+
+    .header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <span>Company Dashboard</span>
+    <span><?php echo htmlspecialchars($company_name); ?></span> 
+  </div>
+
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar mt-5">
+      <a href="company_dashboard.html">Company Dashboard</a>
+      <a href="c_vacancies.html">Vacancy Management</a>
+      <a href="c_applications.html">Application Management</a>
+      <a href="dashboard.html">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content w-100">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-5">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Company Panel</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="mb-0">Vacancy Management</h3>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addVacancyModal">Add Vacancy</button>
+        </div>
+
+        <!-- Vacancy Table -->
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead class="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Posted Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example Vacancy Row -->
+              <tr>
+                <td>1</td>
+                <td>Software Engineer</td>
+                <td>Develop web applications and APIs</td>
+                <td>2025-04-21</td>
+                <td>
+                  <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editVacancyModal">Edit</button>
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </td>
+              </tr>
+              <!-- Additional rows dynamically from backend -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Vacancy Modal -->
+  <div class="modal fade" id="addVacancyModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form>
+          <div class="modal-header">
+            <h5 class="modal-title">Add Vacancy</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" required />
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add Vacancy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Vacancy Modal -->
+  <div class="modal fade" id="editVacancyModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form>
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Vacancy</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="edit-id" />
+            <div class="mb-3">
+              <label for="edit-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="edit-title" required />
+            </div>
+            <div class="mb-3">
+              <label for="edit-description" class="form-label">Description</label>
+              <textarea class="form-control" id="edit-description" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Update Vacancy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script to Populate Edit Modal -->
+  <script>
+    const editModal = document.getElementById('editVacancyModal');
+    editModal.addEventListener('show.bs.modal', event => {
+      const button = event.relatedTarget;
+      document.getElementById('edit-id').value = 1;
+      document.getElementById('edit-title').value = "Software Engineer";
+      document.getElementById('edit-description').value = "Develop web applications and APIs";
+    });
+  </script>
+
+</body>
+</html>

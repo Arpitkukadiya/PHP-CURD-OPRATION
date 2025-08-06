@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registrations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f7f8;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+            font-size: 2rem;
+            position: fixed;
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        .sidebar {
+            background-color: #1a1a1a;
+            position: fixed;
+            padding: 20px;
+            height: 100vh;
+            width: 250px;
+            color: #fff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+            top: 70px;
+        }
+
+        .sidebar h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .sidebar h4:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #007bff, #00d1ff);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .sidebar a.nav-link {
+            color: #dcdcdc;
+            font-size: 1rem;
+            padding: 12px 15px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar a.nav-link:hover, .sidebar a.nav-link.active {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: #fff;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 40px;
+            padding-top: 110px;
+        }
+
+        .table {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        tr {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        .table td {
+            text-align: center;
+            color: #333;
+        }
+
+        .btn {
+            border-radius: 4px;
+        }
+
+        .modal-content {
+            background-color: #f8f9fa;
+        }
+
+        .modal-header, .modal-footer {
+            background-color: #000;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                height: auto;
+                width: 100%; 
+                padding: 10px;
+            }
+
+            .content {
+                margin-left: 0; 
+                padding: 20px;
+                padding-top: 90px;
+            }
+
+            .table {
+                font-size: 14px;
+            }
+
+            .header {
+                font-size: 1.5rem;
+                padding: 15px;
+            }
+
+            .sidebar h4 {
+                font-size: 1.2rem;
+            }
+
+            .sidebar a.nav-link {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+
+            .table td, .table th {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header {
+                font-size: 1.2rem;
+                padding: 10px;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 10px;
+            }
+
+            .sidebar a.nav-link {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+
+            .table td, .table th {
+                font-size: 12px;
+                padding: 6px;
+            }
+
+            .content {
+                padding: 15px;
+                padding-top: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Admin Navbar -->
+    <div class="header">
+        Admin Panel
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="admin_dashboard.html" class="nav-link">Dashboard</a>
+        <a href="user_profile.html" class="nav-link">User Management</a>
+        <a href="vacancies.html" class="nav-link">Vacancy Management</a>
+        <a href="applications.html" class="nav-link">Application Management</a>
+        <a href="events.html" class="nav-link">Event Management</a>
+        <a href="event_registrations.html" class="nav-link active">Event Registration</a>
+        <a href="dashboard.html" class="nav-link">Logout</a>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content flex-grow-1 p-4">
+        <div class="container my-4 mt-5 pt-5">
+            <h1>List of Registered Events</h1>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Event Name</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Registration Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Tech Conference 2025</td>
+                        <td>John Doe</td>
+                        <td>johndoe@example.com</td>
+                        <td>9876543210</td>
+                        <td>2025-04-10</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>AI Workshop</td>
+                        <td>Jane Smith</td>
+                        <td>janesmith@example.com</td>
+                        <td>9876543220</td>
+                        <td>2025-04-12</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Cloud Computing Summit</td>
+                        <td>Raj Kumar</td>
+                        <td>rajkumar@example.com</td>
+                        <td>9876543230</td>
+                        <td>2025-04-14</td>
+                    </tr>
+                    <!-- Add more rows as necessary -->
+                    <tr>
+                        <td colspan="6" class="text-center">No more registrations</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Optional: Modal for Adding Events (if needed) -->
+    <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEventLabel">Add Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="events.html">
+                        <input type="hidden" name="action" value="add">
+                        <div class="mb-3">
+                            <label for="eventTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="eventTitle" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventDescription" class="form-label">Description</label>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

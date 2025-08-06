@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacancy Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f7f8;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+            font-size: 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            background-color: #1a1a1a;
+            padding: 20px;
+            height: 100vh;
+            width: 250px;
+            color: #fff;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sidebar h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .sidebar h4::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #007bff, #00d1ff);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .sidebar a.nav-link {
+            color: #dcdcdc;
+            font-size: 1rem;
+            padding: 12px 15px;
+            display: block;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+
+        .sidebar a.nav-link:hover, .sidebar a.nav-link.active {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: #fff;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 40px;
+            padding-top: 110px;
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            flex: 1 1 250px;
+            max-width: 300px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff, #f4f7f8);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .card h5 {
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                z-index: 1001;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .content {
+                margin-left: 0;
+                padding-top: 130px;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                left: 20px;
+                top: 20px;
+                font-size: 1.8rem;
+                cursor: pointer;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Smaller Screen for cards */
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                max-width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <i class="bi bi-list menu-toggle" onclick="toggleSidebar()"></i>
+    Admin Panel
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <a href="admin_dashboard.html" class="nav-link">Dashboard</a>
+    <a href="user_profile.html" class="nav-link">User Management</a>
+    <a href="vacancies.html" class="nav-link active">Vacancy Management</a>
+    <a href="applications.html" class="nav-link">Application Management</a>
+    <a href="events.html" class="nav-link">Event Management</a>
+    <a href="event_registrations.html" class="nav-link">Event Registration</a>
+    <a href="dashboard.html" class="nav-link">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+    <h1>Vacancy Management</h1>
+    <div class="card-container">
+        <div class="card" onclick="location.href='vacancies.html';">
+            <i class="bi bi-briefcase-fill"></i>
+            <h5>12</h5>
+            <p>Vacancies</p>
+            <button>View Vacancies</button>
+        </div>
+        <div class="card" onclick="location.href='applications.html';">
+            <i class="bi bi-envelope-fill"></i>
+            <h5>45</h5>
+            <p>Applications</p>
+            <button>View Applications</button>
+        </div>
+        <div class="card" onclick="location.href='events.html';">
+            <i class="bi bi-calendar-event-fill"></i>
+            <h5>7</h5>
+            <p>Events</p>
+            <button>View Events</button>
+        </div>
+        <div class="card" onclick="location.href='event_registrations.html';">
+            <i class="bi bi-person-check-fill"></i>
+            <h5>30</h5>
+            <p>Event Registrations</p>
+            <button>View Registrations</button>
+        </div>
+        <div class="card" onclick="location.href='user_profile.html';">
+            <i class="bi bi-person-fill"></i>
+            <h5>20</h5>
+            <p>User Management</p>
+            <button>View Users</button>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS + Sidebar Toggle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>

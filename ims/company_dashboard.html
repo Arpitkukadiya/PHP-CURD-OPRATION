@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Company Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7f8;
+    }
+
+    .header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-btn {
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 1.5rem;
+      display: none;
+    }
+
+    .sidebar {
+      background-color: #333;
+      color: #eee;
+      width: 250px;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar h4 {
+      color: #ff79c6;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar a {
+      color: #f8f8f2;
+      text-decoration: none;
+      display: block;
+      padding: 12px 10px;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+      transition: background-color 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .sidebar a:hover {
+      background-color: #44475a;
+      color: #50fa7b;
+    }
+
+    .content {
+      margin-left: 270px;
+      padding: 40px;
+      padding-top: 110px;
+    }
+
+    .content h1 {
+      font-size: 2.5rem;
+      color: #1a73e8;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      color: #5f6368;
+      text-align: center;
+    }
+
+    .welcome-message {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #003366;
+      margin-bottom: 30px;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      flex: 1;
+      min-width: 220px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #003366;
+    }
+
+    .card.vacancies .icon {
+      color: #007bff;
+    }
+
+    .card.applications .icon {
+      color: #28a745;
+    }
+
+    .card h5 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #003366;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #cce7ff;
+    }
+
+    @media (max-width: 991px) {
+      .toggle-btn {
+        display: block;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+        z-index: 999;
+      }
+
+      .sidebar.show {
+        transform: translateX(0);
+      }
+
+      .content {
+        margin-left: 0;
+        padding: 80px 20px;
+      }
+
+      .card-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <button class="toggle-btn" id="toggleSidebar"><i class="bi bi-list"></i></button>
+    <span>Company Dashboard</span>
+    
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="company_dashboard.html">Company Dashboard</a>
+    <a href="c_vacancies.html">Vacancy Management</a>
+    <a href="c_applications.html">Application Management</a>
+    <a href="dashboard.html">Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content" id="content">
+    <div class="welcome-message">
+      Welcome, Company Name!
+    </div>
+
+    <div class="card-container">
+      <div class="card vacancies">
+        <i class="bi bi-briefcase-fill icon"></i>
+        <h5>5</h5>
+        <p>Vacancies</p>
+      </div>
+
+      <div class="card applications">
+        <i class="bi bi-envelope-fill icon"></i>
+        <h5>12</h5>
+        <p>Applications</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Company Dashboard | Made by <a href="#">Arpit Kukadiya</a></p>
+  </footer>
+
+  <!-- JS for sidebar toggle -->
+  <script>
+    const toggleBtn = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>

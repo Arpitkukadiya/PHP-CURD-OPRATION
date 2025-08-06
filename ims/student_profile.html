@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobseeker Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #003366;
+        }
+        .navbar-brand {
+            color: #ffffff !important;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+            background-color: #003366;
+            color: #ffffff;
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="student_dashboard.html">Campus Recruitment</a>
+            <div class="ml-auto">
+                <span class="text-white">Welcome, John Doe!</span>
+                <a href="student_dashboard.html" class="btn btn-light">Back to Dashboard</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container mt-5">
+    <h2>Jobseeker Profile</h2>
+
+    <div id="profile_view">
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Bio:</strong> Software Developer with 3 years of experience.</p>
+        <p><strong>Experience:</strong> 3 years of experience in web development.</p>
+        <p><strong>Skills:</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
+        <p><strong>Certificates:</strong> Web Development Bootcamp, PHP Masterclass</p>
+        <p>
+            <strong>Profile Image:</strong>
+            <img src="1.jpg" style="max-width: 100px;">
+        </p>
+        <button class="btn btn-primary" id="edit_button">Edit</button>
+    </div>
+
+    <div id="profile_edit" style="display: none;">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="profile_id" value="1">
+            <input type="hidden" name="jobseeker_id" value="1">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" value="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label>Bio</label>
+                <textarea name="bio" class="form-control" rows="3">Software Developer with 3 years of experience.</textarea>
+            </div>
+            <div class="form-group">
+                <label>Experience</label>
+                <textarea name="experience" class="form-control" rows="3">3 years of experience in web development.</textarea>
+            </div>
+            <div class="form-group">
+                <label>Skills</label>
+                <textarea name="skills" class="form-control" rows="3">HTML, CSS, JavaScript, PHP, MySQL</textarea>
+            </div>
+            <div class="form-group">
+                <label>Certificates</label>
+                <textarea name="certificate" class="form-control" rows="3">Web Development Bootcamp, PHP Masterclass</textarea>
+            </div>
+            <div class="form-group">
+                <label>Profile Image</label>
+                <input type="file" name="profile_image" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <button type="button" class="btn btn-secondary" id="cancel_button">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Arpit Kukadiya. All Rights Reserved.</p>
+</footer>
+
+<script>
+    document.getElementById('edit_button').addEventListener('click', function() {
+        document.getElementById('profile_view').style.display = 'none';
+        document.getElementById('profile_edit').style.display = 'block';
+    });
+    document.getElementById('cancel_button').addEventListener('click', function() {
+        document.getElementById('profile_view').style.display = 'block';
+        document.getElementById('profile_edit').style.display = 'none';
+    });
+</script>
+</body>
+</html>

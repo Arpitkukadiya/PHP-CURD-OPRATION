@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jobseeker Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      padding-top: 80px;
+    }
+
+    .header {
+        background:#1a1a1a;
+        color: white;
+        padding: 20px;
+        font-size: 2rem;
+        position: fixed;
+        width: 100%; 
+        top: 0; 
+        z-index: 1000; 
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar {
+        background-color: #1a1a1a;
+        padding: 20px;
+        color: #fff;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+        top: 70px;
+        position: fixed;
+        height: 100vh;
+        width: 250px;
+    }
+
+    .sidebar h4 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    .sidebar h4:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #007bff, #00d1ff);
+        bottom: -10px;
+        left: 0;
+    }
+
+    .sidebar a.nav-link {
+        color: #dcdcdc;
+        font-size: 1rem;
+        padding: 12px 15px;
+        text-decoration: none;
+        display: block;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .sidebar a.nav-link:hover, .sidebar a.nav-link.active {
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        color: #fff;
+    }
+
+    .content {
+        margin-left: 270px;
+        padding: 40px;
+        padding-top: 110px;
+    }
+
+    .container {
+      padding-left: 270px;
+      padding-right: 15px;
+    }
+
+    .table th, .table td {
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .table th {
+      background-color: #000;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .table td {
+      color: #333;
+      padding: 8px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        top: 0;
+        padding: 15px;
+      }
+      
+      .content {
+        margin-left: 0;
+        padding: 20px;
+        padding-top: 80px;
+      }
+
+      .container {
+        padding-left: 0;
+      }
+
+      .header {
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+
+      .table th, .table td {
+        font-size: 0.9rem;
+      }
+
+    }
+
+    @media (max-width: 576px) {
+      .header {
+        font-size: 1.2rem;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div>Admin Panel</div>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="admin_dashboard.html" class="nav-link">Dashboard</a>
+    <a href="user_profile.html" class="nav-link">User Management</a>
+    <a href="vacancies.html" class="nav-link active">Vacancy Management</a>
+    <a href="applications.html" class="nav-link">Application Management</a>
+    <a href="events.html" class="nav-link">Event Management</a>
+    <a href="event_registrations.html" class="nav-link">Event Registration</a>
+    <a href="dashboard.html" class="nav-link">Logout</a>
+</div>
+
+<div class="container mt-5">
+  <h2>Student Profiles</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Profile Image</th>
+        <th>Bio</th>
+        <th>Experience</th>
+        <th>Skills</th>
+        <th>Certificates</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sample Row -->
+      <tr>
+        <td>1</td>
+        <td>Arpit Patel</td>
+        <td><img src="1.jpg" alt="Profile Image" class="img-fluid" style="max-width: 100px;" /></td>
+        <td>Enthusiastic web developer</td>
+        <td>2 years at ABC Corp</td>
+        <td>HTML, CSS, JavaScript</td>
+        <td>Full Stack Dev Certificate</td>
+        <td>
+          <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editProfileModal"
+            data-id="1"
+            data-name="Riya Patel"
+            data-bio="Enthusiastic web developer"
+            data-experience="2 years at ABC Corp"
+            data-skills="HTML, CSS, JavaScript"
+            data-certificate="Full Stack Dev Certificate"
+          >Edit</button>
+        </td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+
+  <h2>Users</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sample User -->
+      <tr>
+        <td>1</td>
+        <td>Amit Sharma</td>
+        <td>amit.sharma@example.com</td>
+        <td>Student</td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="hidden" id="profile_id" />
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="bio" class="form-label">Bio</label>
+            <textarea class="form-control" id="bio" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="experience" class="form-label">Experience</label>
+            <textarea class="form-control" id="experience" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="skills" class="form-label">Skills</label>
+            <input type="text" class="form-control" id="skills" required />
+          </div>
+          <div class="mb-3">
+            <label for="certificate" class="form-label">Certificates</label>
+            <input type="text" class="form-control" id="certificate" required />
+          </div>
+          <button type="button" class="btn btn-primary">Update Profile</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.btn-warning').forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.getElementById('profile_id').value = button.getAttribute('data-id');
+      document.getElementById('name').value = button.getAttribute('data-name');
+      document.getElementById('bio').value = button.getAttribute('data-bio');
+      document.getElementById('experience').value = button.getAttribute('data-experience');
+      document.getElementById('skills').value = button.getAttribute('data-skills');
+      document.getElementById('certificate').value = button.getAttribute('data-certificate');
+    });
+  });
+</script>
+
+</body>
+</html>

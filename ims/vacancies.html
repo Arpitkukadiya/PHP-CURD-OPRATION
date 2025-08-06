@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacancy Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css"> 
+    <style>
+    .table {
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+        text-align: center; 
+    }
+
+    .table th {
+        background-color: #000; 
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .table td {
+        color: #333; 
+    }
+
+    .btn {
+        border-radius: 4px;
+    }
+
+    .modal-content {
+        background-color: #f8f9fa; 
+    }
+
+    .modal-header, .modal-footer {
+        background-color: #000; 
+        color: #ffffff; 
+    }
+
+    @media (max-width: 768px) {
+        .sidebar {
+            position: relative;
+            height: auto;
+            width: 100%;
+        }
+
+        .content {
+            margin-left: 0;
+        }
+    }
+
+	
+    .sidebar {
+        background-color: #1a1a1a;
+        padding: 20px;
+        color: #fff;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+        top: 70px;
+        position: fixed;
+        height: 100vh;
+        width: 250px;
+    }
+
+    .sidebar h4 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    .sidebar h4:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #007bff, #00d1ff);
+        bottom: -10px;
+        left: 0;
+    }
+
+    .sidebar a.nav-link {
+        color: #dcdcdc;
+        font-size: 1rem;
+        padding: 12px 15px;
+        text-decoration: none;
+        display: block;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .sidebar a.nav-link:hover, .sidebar a.nav-link.active {
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        color: #fff;
+    }
+
+    .content {
+        margin-left: 270px;
+        padding: 40px;
+        padding-top: 110px;
+    }
+	
+
+	.header {
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+
+	  @media (max-width: 576px) {
+		.header {
+		  font-size: 1.2rem;
+		}
+  
+		.sidebar {
+		  width: 100%;
+		}
+	  }
+
+	  
+	  .header {
+        background:#1a1a1a;
+        color: white;
+        padding: 20px;
+        font-size: 2rem;
+        position: fixed;
+        width: 100%; 
+        top: 0; 
+        z-index: 1000; 
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    </style>
+</head>
+<body>
+
+	<!-- Header -->
+<div class="header">
+	<div>Admin Panel</div>
+  </div>
+  
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="admin_dashboard.html" class="nav-link">Dashboard</a>
+    <a href="user_profile.html" class="nav-link">User Management</a>
+    <a href="vacancies.html" class="nav-link active">Vacancy Management</a>
+    <a href="applications.html" class="nav-link">Application Management</a>
+    <a href="events.html" class="nav-link">Event Management</a>
+    <a href="event_registrations.html" class="nav-link">Event Registration</a>
+    <a href="dashboard.html" class="nav-link">Logout</a>
+</div>
+
+
+    <div class="content flex-grow-1 p-4 mt-5 pt-5">
+        <h3 class="mb-4">Vacancy Management</h3>
+        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addVacancyModal">Add Vacancy</button>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Company</th>
+                    <th>Posted Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+				<tr>
+					<td>1</td>
+					<td>Software Engineer</td>
+					<td>Develop and maintain web applications using PHP and MySQL.</td>
+					<td>Infosys</td>
+					<td>2025-04-20</td>
+					<td>
+						<a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editVacancyModal" 
+						   data-id="1" 
+						   data-title="Software Engineer" 
+						   data-description="Develop and maintain web applications using PHP and MySQL." 
+						   data-company="Infosys">Edit</a>
+						<a href="?delete=1" class="btn btn-danger btn-sm">Delete</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>UI/UX Designer</td>
+					<td>Create user-friendly web and mobile interfaces.</td>
+					<td>TCS</td>
+					<td>2025-04-18</td>
+					<td>
+						<a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editVacancyModal" 
+						   data-id="2" 
+						   data-title="UI/UX Designer" 
+						   data-description="Create user-friendly web and mobile interfaces." 
+						   data-company="TCS">Edit</a>
+						<a href="?delete=2" class="btn btn-danger btn-sm">Delete</a>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Data Analyst</td>
+					<td>Analyze large data sets and generate business insights.</td>
+					<td>Wipro</td>
+					<td>2025-04-15</td>
+					<td>
+						<a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editVacancyModal" 
+						   data-id="3" 
+						   data-title="Data Analyst" 
+						   data-description="Analyze large data sets and generate business insights." 
+						   data-company="Wipro">Edit</a>
+						<a href="?delete=3" class="btn btn-danger btn-sm">Delete</a>
+					</td>
+				</tr>
+				
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="addVacancyModal" tabindex="-1" aria-labelledby="addVacancyLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addVacancyLabel">Add Vacancy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company_id" class="form-label">Company ID</label>
+                        <input type="number" class="form-control" id="company_id" name="company_id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company" class="form-label">Company Name</label>
+                        <input type="text" class="form-control" id="company" name="company" required>
+                    </div>
+                    <button type="submit" name="addVacancy" class="btn btn-primary">Add Vacancy</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editVacancyModal" tabindex="-1" aria-labelledby="editVacancyLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editVacancyLabel">Edit Vacancy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="">
+                    <input type="hidden" id="edit_id" name="id">
+                    <div class="mb-3">
+                        <label for="edit_title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="edit_title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_description" class="form-label">Description</label>
+                        <textarea class="form-control" id="edit_description" name="description" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_company" class="form-label">Company Name</label>
+                        <input type="text" class="form-control" id="edit_company" name="company" required>
+                    </div>
+                    <button type="submit" name="edit_vacancy" class="btn btn-primary">Update Vacancy</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+   
+    var editVacancyModal = document.getElementById('editVacancyModal');
+    editVacancyModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; 
+        var id = button.getAttribute('data-id');
+        var title = button.getAttribute('data-title');
+        var description = button.getAttribute('data-description');
+        var company = button.getAttribute('data-company');
+
+        var modalTitle = editVacancyModal.querySelector('.modal-title');
+        var editIdInput = editVacancyModal.querySelector('#edit_id');
+        var editTitleInput = editVacancyModal.querySelector('#edit_title');
+        var editDescriptionInput = editVacancyModal.querySelector('#edit_description');
+        var editCompanyInput = editVacancyModal.querySelector('#edit_company');
+
+        modalTitle.textContent = 'Edit Vacancy';
+        editIdInput.value = id;
+        editTitleInput.value = title;
+        editDescriptionInput.value = description;
+        editCompanyInput.value = company;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="student_dashboard.html">Campus Recruitment</a>
+            <div class="ml-auto">
+                <!-- Static placeholder for the student's name -->
+                <span class="text-white">Welcome, Student Name!</span>
+                <a href="student_dashboard.html" class="btn btn-light">Back to Dashboard</a>
+                <a href="stu_satus.html" class="btn btn-light">Student Job Status</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container my-4">
+    <h1 class="text-center">Applications List</h1>
+    <div class="row">
+        <!-- Static example of an application card, dynamically generate more cards as needed -->
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vacancy Title</h5>
+                    <p class="card-text"><strong>Name:</strong> Applicant Name</p>
+                    <p class="card-text"><strong>Email:</strong> applicant@example.com</p>
+                    <p class="card-text"><strong>Status:</strong> 
+                        <span class="text-warning">Pending</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Example of another application card -->
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vacancy Title</h5>
+                    <p class="card-text"><strong>Name:</strong> Applicant Name</p>
+                    <p class="card-text"><strong>Email:</strong> applicant@example.com</p>
+                    <p class="card-text"><strong>Status:</strong> 
+                        <span class="text-success">Approved</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- You can add more cards like above for each application -->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

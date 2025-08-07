@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farm Visits</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <style>
+    body {
+      background-color: #f4f7f8;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .sidebar {
+      background-color: #1a1a1a;
+      color: white;
+      position: fixed;
+      height: 100vh;
+      width: 250px;
+      top: 0;
+      left: 0;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      color: #dcdcdc;
+      font-size: 1rem;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .sidebar a:hover {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .content {
+      margin-left: 270px;
+      padding: 20px;
+    }
+
+    .card {
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .card-body {
+      background-color: #f8f9fa;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="text-center">Farmer Dashboard</h4>
+        <a href="farmer_dashboard.html">Dashboard</a>
+        <a href="add_crop.html">Add Crop</a>
+        <a href="manage_orders.html">Manage Orders</a>
+        <a href="farm_visits.html">Farm Visits</a>
+        <a href="view_crops.html">View Crops</a>
+        <a href="feedback_view.html">View Feedback</a>
+        <a href="logout.html" class="btn btn-danger text-center">Logout</a>
+    </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="container">
+      <h2>Upcoming Farm Visits</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Update Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-04-20</td>
+            <td>Visit to observe organic farming process</td>
+            <td>Rahul Sharma</td>
+            <td>requested</td>
+            <td>
+              <form method="POST">
+                <select class="form-control" required>
+                  <option value="requested" selected>Requested</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+                <button type="submit" class="btn btn-primary mt-2">Update</button>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>2025-04-22</td>
+            <td>Field tour and Q&A with farmer</td>
+            <td>Priya Patel</td>
+            <td>approved</td>
+            <td>
+              <form method="POST">
+                <select class="form-control" required>
+                  <option value="requested">Requested</option>
+                  <option value="approved" selected>Approved</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+                <button type="submit" class="btn btn-primary mt-2">Update</button>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>2025-04-25</td>
+            <td>Peanut harvest visit</td>
+            <td>Sneha Joshi</td>
+            <td>rejected</td>
+            <td>
+              <form method="POST">
+                <select class="form-control" required>
+                  <option value="requested">Requested</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected" selected>Rejected</option>
+                </select>
+                <button type="submit" class="btn btn-primary mt-2">Update</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

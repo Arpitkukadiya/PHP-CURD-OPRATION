@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔁 Docker Compose Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      color: #0d6efd;
+      margin-bottom: 30px;
+    }
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    pre {
+      background-color: #e9ecef;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    code {
+      color: #d63384;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔁 Docker Compose Guide</h1>
+
+  <div class="container">
+    <div class="card p-4 mb-4">
+      <h4>📄 What is Docker Compose?</h4>
+      <p>Docker Compose is a tool for defining and running multi-container Docker applications using a <code>docker-compose.yml</code> file.</p>
+    </div>
+
+    <div class="card p-4 mb-4">
+      <h4>📝 Sample <code>docker-compose.yml</code> File</h4>
+      <pre><code>version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+
+  app:
+    build: .
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root</code></pre>
+    </div>
+
+    <div class="card p-4 mb-4">
+      <h4>⚙️ Common Commands</h4>
+      <ul>
+        <li><code>docker-compose up -d</code> - Start all services in the background</li>
+        <li><code>docker-compose down</code> - Stop and remove containers, networks, and volumes</li>
+        <li><code>docker-compose ps</code> - List containers</li>
+        <li><code>docker-compose logs</code> - View logs for all services</li>
+        <li><code>docker-compose up --build</code> - Rebuild and start services</li>
+      </ul>
+    </div>
+
+    <div class="card p-4">
+      <h4>✅ Best Practices</h4>
+      <ul>
+        <li>Use versioned images (e.g. <code>nginx:1.21</code>) instead of <code>latest</code></li>
+        <li>Separate production and development configs</li>
+        <li>Use named volumes for persistent data</li>
+        <li>Leverage <code>.env</code> files to manage environment variables</li>
+      </ul>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="topics.html" class="btn btn-primary">⬅️ Back to Topics</a>
+    </div>
+  </div>
+
+</body>
+</html>

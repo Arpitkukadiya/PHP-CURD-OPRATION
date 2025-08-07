@@ -1,0 +1,113 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4f7f8;
+        }
+        .register-container {
+            max-width: 550px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .register-container h2 {
+            color: #56ab2f;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .form-control {
+            height: 50px;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+        .input-group-text {
+            background: #56ab2f;
+            color: white;
+            border: none;
+            border-radius: 8px 0px 0px 8px;
+        }
+        .btn-primary {
+            background: #56ab2f;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background: #3d7720;
+        }
+        .form-links {
+            margin-top: 15px;
+        }
+        .form-links a {
+            color: #56ab2f;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .form-links a:hover {
+            color: #3d7720;
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2><i class="fa-solid fa-user"></i> Customer Registration</h2>
+
+        
+        <form method="POST" >
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                <input type="text" name="name" class="form-control" placeholder="Enter your name" >
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" >
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" name="password" class="form-control" placeholder="Enter your password" >
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-city"></i></span>
+                <input type="text" name="city" class="form-control" placeholder="Enter your city" >
+            </div>
+
+            <a href="login.html" class="btn btn-primary btn-block w-100"> Registration</a>
+    
+        </form>
+
+        <div class="form-links mt-3">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

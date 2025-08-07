@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f7f8;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .sidebar {
+            background-color: #1a1a1a;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            width: 250px;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: #dcdcdc;
+            font-size: 1rem;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .btn-profile {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="text-center">Farmer Dashboard</h4>
+        <a href="farmer_dashboard.html">Dashboard</a>
+        <a href="add_crop.html">Add Crop</a>
+        <a href="manage_orders.html">Manage Orders</a>
+        <a href="farm_visits.html">Farm Visits</a>
+        <a href="view_crops.html">View Crops</a>
+        <a href="feedback_view.html">View Feedback</a>
+        <a href="logout.html" class="btn btn-danger text-center">Logout</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="container-fluied mx-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Welcome, Ramesh Patel!</h2>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#farmerProfileModal">
+                    View Profile
+                </button>
+            </div>
+
+            <!-- Farmer Profile Modal -->
+            <div class="modal fade" id="farmerProfileModal" tabindex="-1" role="dialog" aria-labelledby="farmerProfileLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="farmerProfileLabel">Farmer Profile</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Name:</strong> Ramesh Patel</p>
+                            <p><strong>Email:</strong> ramesh.patel@example.com</p>
+                            <p><strong>Location:</strong> Rajkot, Gujarat</p>
+                            <p><strong>Bio:</strong> Experienced peanut farmer with 10 years in sustainable farming.</p>
+                            <p><strong>Certification Status:</strong> Certified</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="mb-4 mt-3">Your Crops</h3>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price (₹/kg)</th>
+                        <th>Season</th>
+                        <th>Insurance</th>
+                        <th>Certified</th>
+                        <th>Video</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Peanut</td>
+                        <td>High quality organic peanuts</td>
+                        <td>60</td>
+                        <td>Kharif</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td><a href="#" data-toggle="modal" data-target="#videoModal1">View</a></td>
+                        <td>
+                            <a href="edit_crop.html" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Video Modal -->
+            <div class="modal fade" id="videoModal1" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="videoModalLabel">Crop Video</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <video width="100%" controls>
+                                <source src="sample_peanut_video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛠️ Docker Services in Swarm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f4f8;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      color: #0d6efd;
+      margin-bottom: 30px;
+    }
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+    pre {
+      background-color: #e9ecef;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    code {
+      color: #d63384;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛠️ Docker Services in Swarm</h1>
+
+  <div class="container">
+    <div class="card p-4">
+      <h4>📘 What are Docker Services?</h4>
+      <p>Services are the definition of how containers behave in a Docker Swarm cluster. A service includes the image to use and instructions on how to run containers (e.g., ports, environment, replicas).</p>
+    </div>
+
+    <div class="card p-4">
+      <h4>🔧 Create a Simple Service</h4>
+      <p>Start by initializing Swarm mode:</p>
+      <pre><code>docker swarm init</code></pre>
+
+      <p>Create a service:</p>
+      <pre><code>docker service create --name web -p 8080:80 nginx</code></pre>
+    </div>
+
+    <div class="card p-4">
+      <h4>📋 Service Commands</h4>
+      <ul>
+        <li><code>docker service ls</code> - List all services</li>
+        <li><code>docker service ps web</code> - List tasks (containers) of the "web" service</li>
+        <li><code>docker service inspect web</code> - Inspect a service</li>
+        <li><code>docker service scale web=3</code> - Scale service to 3 replicas</li>
+        <li><code>docker service update --image nginx:alpine web</code> - Update service image</li>
+        <li><code>docker service rm web</code> - Remove the service</li>
+      </ul>
+    </div>
+
+    <div class="card p-4">
+      <h4>🧠 Example Use Case</h4>
+      <p>Imagine you have a web app and want to load-balance it across multiple nodes. You can deploy it as a service with multiple replicas, allowing Docker to manage placement and updates automatically.</p>
+      <pre><code>docker service create --name myapp -p 5000:5000 --replicas 5 myimage</code></pre>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="topics.html" class="btn btn-primary">⬅️ Back to Topics</a>
+    </div>
+  </div>
+
+</body>
+</html>

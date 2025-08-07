@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>⚡ Docker Swarm - Arpit Kukadiya</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      padding: 40px;
+    }
+    h1, h2 {
+      color: #0d6efd;
+      text-align: center;
+    }
+    .section {
+      margin-top: 40px;
+    }
+    pre {
+      background: #f1f1f1;
+      padding: 15px;
+      border-left: 4px solid #0d6efd;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .highlight {
+      color: #0a4275;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⚡ Docker Swarm</h1>
+  <h5 class="text-center">Orchestration and Clustering with Swarm Mode</h5>
+
+  <div class="section">
+    <h2>🔍 What is Docker Swarm?</h2>
+    <p>Docker Swarm is Docker's native clustering and orchestration tool. It allows multiple Docker engines (hosts) to work together in a cluster, where services can be deployed, managed, and scaled across nodes.</p>
+  </div>
+
+  <div class="section">
+    <h2>🚀 Initialize Swarm Mode</h2>
+    <pre><code>docker swarm init</code></pre>
+    <p>This initializes the current Docker host as a <span class="highlight">Swarm Manager</span>.</p>
+  </div>
+
+  <div class="section">
+    <h2>🔗 Join a Worker Node</h2>
+    <pre><code>docker swarm join --token &lt;token&gt; &lt;manager-ip&gt;:2377</code></pre>
+    <p>This command (generated after <code>swarm init</code>) lets other machines join as workers.</p>
+  </div>
+
+  <div class="section">
+    <h2>📜 List Nodes</h2>
+    <pre><code>docker node ls</code></pre>
+    <p>Run this on the manager to see all nodes in the swarm cluster.</p>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Create a Service</h2>
+    <pre><code>docker service create --name web -p 8080:80 nginx</code></pre>
+    <p>This deploys a replicated nginx container across the cluster.</p>
+  </div>
+
+  <div class="section">
+    <h2>📈 Scale a Service</h2>
+    <pre><code>docker service scale web=3</code></pre>
+    <p>Increases the number of running instances (replicas) of the web service to 3.</p>
+  </div>
+
+  <div class="section">
+    <h2>📋 Inspect Services & Tasks</h2>
+    <pre><code>docker service ls
+
+# Inspect a specific service
+docker service inspect web --pretty
+
+# View running containers of a service
+docker service ps web</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>🧼 Remove Services & Leave Swarm</h2>
+    <pre><code>docker service rm web
+
+# Leave swarm (on a worker)
+docker swarm leave
+
+# Force leave (on a manager)
+docker swarm leave --force</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>📦 Real-World Use Case Example</h2>
+    <p>Here’s a real-world example using Docker Swarm to deploy a web application:</p>
+    <pre><code># Initialize swarm on manager
+$ docker swarm init
+
+# Deploy service
+$ docker service create --name frontend -p 80:80 myapp
+
+# Scale up
+$ docker service scale frontend=4
+
+# View tasks
+$ docker service ps frontend
+
+# Update service image
+$ docker service update --image myapp:v2 frontend</code></pre>
+  </div>
+
+  <div class="text-center mt-5">
+    <a href="topics.html" class="btn btn-primary">⬅️ Back to Topics</a>
+  </div>
+
+</body>
+</html>

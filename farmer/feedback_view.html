@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Feedback</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f7f8;
+            font-family: 'Roboto', sans-serif;
+        }
+        .sidebar {
+            background-color: #1a1a1a;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            width: 250px;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: #dcdcdc;
+            font-size: 1rem;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+        .table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .rating-stars {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h4 class="text-center">Farmer Dashboard</h4>
+        <a href="farmer_dashboard.html">Dashboard</a>
+        <a href="add_crop.html">Add Crop</a>
+        <a href="manage_orders.html">Manage Orders</a>
+        <a href="farm_visits.html">Farm Visits</a>
+        <a href="view_crops.html">View Crops</a>
+        <a href="feedback_view.html">View Feedback</a>
+        <a href="logout.html" class="btn btn-danger text-center">Logout</a>
+    </div>
+
+<!-- Content -->
+<div class="content">
+    <div class="container">
+        <h2 class="mb-4">Feedback from Customers</h2>
+
+        <!-- Sample Feedback Data -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Order Date</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>John Doe</td>
+                    <td>2025-04-10</td>
+                    <td>
+                        <span class="rating-stars">
+                            ★★★☆☆
+                        </span>
+                    </td>
+                    <td>Great quality! Will buy again.</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Jane Smith</td>
+                    <td>2025-04-12</td>
+                    <td>
+                        <span class="rating-stars">
+                            ★★★★☆
+                        </span>
+                    </td>
+                    <td>Good product, but the delivery was a bit delayed.</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>Emily Johnson</td>
+                    <td>2025-04-15</td>
+                    <td>
+                        <span class="rating-stars">
+                            ★★★★★
+                        </span>
+                    </td>
+                    <td>Excellent quality, exceeded my expectations!</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- No feedback available message -->
+        <!-- <p>No feedback available yet.</p> -->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

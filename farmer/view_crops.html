@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Crops</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f7f8;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .sidebar {
+            background-color: #1a1a1a;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            width: 250px;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: #dcdcdc;
+            font-size: 1rem;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .btn {
+            font-size: 0.875rem;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="text-center">Farmer Dashboard</h4>
+        <a href="farmer_dashboard.html">Dashboard</a>
+        <a href="add_crop.html">Add Crop</a>
+        <a href="manage_orders.html">Manage Orders</a>
+        <a href="farm_visits.html">Farm Visits</a>
+        <a href="view_crops.html">View Crops</a>
+        <a href="feedback_view.html">View Feedback</a>
+        <a href="logout.html" class="btn btn-danger text-center">Logout</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="container">
+            <h2>Your Crops</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Crop Name</th>
+                        <th>Description</th>
+                        <th>Price per kg (₹)</th>
+                        <th>Season</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Demo Data -->
+                    <tr>
+                        <td>Wheat</td>
+                        <td>High-quality wheat for all your needs.</td>
+                        <td>₹25</td>
+                        <td>Winter</td>
+                        <td>
+                            <a href="edit_crop.html?id=1" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="delete_crop.html?id=1" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rice</td>
+                        <td>Best rice, harvested with care.</td>
+                        <td>₹30</td>
+                        <td>Monsoon</td>
+                        <td>
+                            <a href="edit_crop.html?id=2" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="delete_crop.html?id=2" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Peanut</td>
+                        <td>Rich in protein and taste.</td>
+                        <td>₹40</td>
+                        <td>Summer</td>
+                        <td>
+                            <a href="edit_crop.html?id=3" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="delete_crop.html?id=3" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .order-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .badge-status {
+            font-size: 0.9rem;
+            padding: 5px 10px;
+        }
+
+        /* Star Rating */
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            color: #ddd;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .star-rating input:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: gold;
+        }
+
+        .btn-feedback {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-feedback:hover {
+            background-color: #218838;
+        }
+        
+        .star-display {
+            font-size: 1.5rem;
+            color: gold;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 8px 20px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+            font-size: 1rem;
+            margin-right: 2px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f1c40f !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="customer_dashboard.html">GreenHarvest</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon">☰</span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="customer_profile.html">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="order_history.html">Order History</a></li>
+                <li class="nav-item"><a class="nav-link" href="visit_history.html">Visit History</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mx-4 mt-4">
+    <h2 class="text-center mb-4 text-dark">Your Order History</h2>
+
+    <div class="row">
+        <!-- Demo Order 1 -->
+        <div class="col-md-3 mb-4">
+            <div class="order-card p-3">
+                <h3 class="fw-bold text-dark">Peanut Crop</h3><hr>
+                <p class="mb-1" hidden><strong>Farmer:</strong> John Doe</p>
+                <p class="mb-1" hidden><strong>Order ID:</strong> 1001</p>
+                <p class="mb-1"><strong>Quantity:</strong> 10 kg</p>
+                <p class="mb-1"><strong>Total Price:</strong> ₹500</p>
+                <p class="mb-1"><strong>Order Date:</strong> 2025-04-21</p>
+                <p class="mb-1">
+                    <strong>Status:</strong> 
+                    <span class=" text-success">Completed</span>
+                </p>
+                
+                <!-- Check if feedback exists -->
+                <p class="mb-1"><strong>Your Rating:</strong>
+                    <span class="star-display">★★★★☆</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Demo Order 2 -->
+        <div class="col-md-3 mb-4">
+            <div class="order-card p-3">
+                <h3 class="fw-bold text-dark">Peanut Crop</h3><hr>
+                <p class="mb-1" hidden><strong>Farmer:</strong> Jane Smith</p>
+                <p class="mb-1" hidden><strong>Order ID:</strong> 1002</p>
+                <p class="mb-1"><strong>Quantity:</strong> 5 kg</p>
+                <p class="mb-1"><strong>Total Price:</strong> ₹250</p>
+                <p class="mb-1"><strong>Order Date:</strong> 2025-04-19</p>
+                <p class="mb-1">
+                    <strong>Status:</strong> 
+                    <span class=" text-warning">Pending</span>
+                </p>
+                
+                <!-- Check if feedback exists -->
+                <button class="btn btn-feedback mt-2" data-bs-toggle="modal" data-bs-target="#feedbackModal" 
+                    data-order-id="1002"
+                    data-crop-name="Peanut Crop">
+                    Give Feedback
+                </button>
+            </div>
+        </div>
+
+        <!-- Demo Order 3 -->
+        <div class="col-md-3 mb-4">
+            <div class="order-card p-3">
+                <h3 class="fw-bold text-dark">Peanut Crop</h3><hr>
+                <p class="mb-1" hidden><strong>Farmer:</strong> Alice Brown</p>
+                <p class="mb-1" hidden><strong>Order ID:</strong> 1003</p>
+                <p class="mb-1"><strong>Quantity:</strong> 8 kg</p>
+                <p class="mb-1"><strong>Total Price:</strong> ₹400</p>
+                <p class="mb-1"><strong>Order Date:</strong> 2025-04-20</p>
+                <p class="mb-1">
+                    <strong>Status:</strong> 
+                    <span class=" text-warning">Pending</span>
+                </p>
+                
+                <!-- Check if feedback exists -->
+                <button class="btn btn-feedback mt-2" data-bs-toggle="modal" data-bs-target="#feedbackModal" 
+                    data-order-id="1003"
+                    data-crop-name="Peanut Crop">
+                    Give Feedback
+                </button>
+            </div>
+        </div>
+
+        <!-- No Orders -->
+        <div class="col-12 text-center" style="display: none;">
+            <p>No orders found.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Feedback Modal -->
+<div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="feedbackModalLabel">Give Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" action="submit_feedback.html">
+                <div class="modal-body">
+                    <input type="hidden" name="order_id" id="modalOrderId">
+                    <input type="hidden" name="rating" id="selectedRating" value="">
+
+                    <div class="mb-3">
+                        <label class="form-label">Crop Name</label>
+                        <input type="text" id="modalCropName" class="form-control" disabled>
+                    </div>
+
+                     <!-- Star Rating -->
+                     <div class="mb-3 text-center">
+                        <label class="form-label">Rating</label>
+                        <div class="star-rating">
+                            <input type="radio" name="star" id="star5" value="5"><label for="star5">&#9733;</label>
+                            <input type="radio" name="star" id="star4" value="4"><label for="star4">&#9733;</label>
+                            <input type="radio" name="star" id="star3" value="3"><label for="star3">&#9733;</label>
+                            <input type="radio" name="star" id="star2" value="2"><label for="star2">&#9733;</label>
+                            <input type="radio" name="star" id="star1" value="1"><label for="star1">&#9733;</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Comments</label>
+                        <textarea name="comment" id="comment" class="form-control" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Set order ID and crop name when opening the modal
+    document.querySelectorAll('.btn-feedback').forEach(button => {
+        button.addEventListener('click', function () {
+            document.getElementById('modalOrderId').value = this.getAttribute('data-order-id');
+            document.getElementById('modalCropName').value = this.getAttribute('data-crop-name');
+        });
+    });
+
+    // Store the selected star rating in hidden input
+    document.querySelectorAll('.star-rating input').forEach(star => {
+        star.addEventListener('change', function () {
+            document.getElementById('selectedRating').value = this.value;
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

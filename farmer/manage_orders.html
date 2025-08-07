@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f7f8;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .sidebar {
+            background-color: #1a1a1a;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            width: 250px;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: #dcdcdc;
+            font-size: 1rem;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .table thead {
+            background: #007bff;
+            color: white;
+        }
+
+        .table tbody tr:hover {
+            background: #f1f1f1;
+        }
+
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="text-center">Farmer Dashboard</h4>
+        <a href="farmer_dashboard.html">Dashboard</a>
+        <a href="add_crop.html">Add Crop</a>
+        <a href="manage_orders.html">Manage Orders</a>
+        <a href="farm_visits.html">Farm Visits</a>
+        <a href="view_crops.html">View Crops</a>
+        <a href="feedback_view.html">View Feedback</a>
+        <a href="logout.html" class="btn btn-danger text-center">Logout</a>
+    </div>
+
+
+    <!-- Content -->
+    <div class="content">
+        <div class="container">
+            <h2 class="text-center">Manage Orders</h2>
+
+            <!-- Success/Error Message -->
+            <div class="alert alert-success">Order status updated successfully!</div>
+            <div class="alert alert-danger">Failed to update order status.</div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Crop Name</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rahul Sharma</td>
+                        <td>Groundnut</td>
+                        <td>50 kg</td>
+                        <td>₹2500</td>
+                        <td>pending</td>
+                        <td>
+                            <form>
+                                <select class="form-control" required>
+                                    <option value="pending" selected>Pending</option>
+                                    <option value="confirmed">Confirmed</option>
+                                    <option value="shipped">Shipped</option>
+                                    <option value="delivered">Delivered</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary mt-2">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Priya Patel</td>
+                        <td>Peanut</td>
+                        <td>30 kg</td>
+                        <td>₹1800</td>
+                        <td>confirmed</td>
+                        <td>
+                            <form>
+                                <select class="form-control" required>
+                                    <option value="pending">Pending</option>
+                                    <option value="confirmed" selected>Confirmed</option>
+                                    <option value="shipped">Shipped</option>
+                                    <option value="delivered">Delivered</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary mt-2">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <!-- Add more dummy rows if needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

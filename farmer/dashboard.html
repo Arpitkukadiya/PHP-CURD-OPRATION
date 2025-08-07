@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f7f8;
+            font-family: 'Roboto', sans-serif;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #1a73e8;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            font-size: 1rem;
+            padding: 12px 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn:hover {
+            background-color: #007bff;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Animation for button hover */
+        .btn-primary {
+            background-color: #007bff;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border: 2px solid transparent;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: 2px solid transparent;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .container {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Farmer Login</h2>
+        <a href="farmer_dashboard.html" class="btn btn-primary">
+            <i class="fas fa-seedling"></i> Go to Farmer Page
+        </a>
+    </div>
+
+    <div class="container">
+        <h2>Customer Login</h2>
+        <a href="customer_dashboard.html" class="btn btn-success">
+            <i class="fas fa-user-friends"></i> Go to Customer Page
+        </a>
+    </div>
+
+
+    <!-- Optional: Bootstrap JS and dependencies for animation -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

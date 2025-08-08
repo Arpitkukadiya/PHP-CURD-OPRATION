@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Products</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="admin_styles.css" />
+  <style>
+    .card-img-top {
+      object-fit: cover;
+      height: 400px;
+      width: 100%;
+    }
+
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      color: green;
+    }
+
+    .product-category {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .action-btns a, .action-btns button {
+      margin-right: 10px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+
+ /* Sidebar Styles */
+ .sidebar {
+    width: 250px;
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar li {
+    padding: 12px;
+    border-bottom: 1px solid #004080; /* Slightly Lighter Blue */
+}
+
+.sidebar li a {
+    color: #e6f0ff; /* Light Blue */
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar li a:hover {
+    color: #cce0ff; /* Lighter Blue */
+}
+  </style>
+</head>
+<body>
+ <!-- Sidebar -->
+ <div class="sidebar  text-white p-3" style="width: 250px; height: 100vh;">
+    <h2 class="text-center mb-4">Admin Panel</h2>
+    <ul class="list-unstyled">
+        <li><a href="admin_dashboard.html" class="text-white d-block   rounded mb-2 hover-link">Dashboard</a></li>
+        <li><a href="admin_customer.html" class="text-white d-block   rounded mb-2 hover-link">Manages Customers</a></li>
+        <li><a href="admin_product.html" class="text-white d-block   rounded mb-2 hover-link">Manages Sales Products</a></li>
+        <li><a href="admin_order.html" class="text-white d-block   rounded mb-2 hover-link">Manages Sales Orders</a></li>
+        <li><a href="admin_sales_invoice.html" class="text-white d-block   rounded mb-2 hover-link">Manages Sales Invoice</a></li>
+        <li><a href="user_feedback.html" class="text-white d-block   rounded mb-2 hover-link">Manages feedback</a></li>
+        <li><a id="logoutLink" href="login.html" class="text-white d-block   rounded mb-2 hover-link">Logout</a></li>
+    </ul>
+</div>
+
+<!-- Content -->
+<div class="content">
+  <div class="container-fluid">
+    <section class="show-products">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-center">Products List</h2>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">Add Product</button>
+      </div>
+
+      <div class="row"><!-- Product Card Example - Footwear -->
+        <div class="col-md-3 product-card mb-3">
+          <div class="card">
+            <img src="uploaded_img/air-jordan-1-low-g-golf-shoes-.png" alt="Casual Sneakers" class="card-img-top"/>
+            <div class="card-body">
+              <h5 class="product-name">Casual Sneakers</h5>
+              <p class="product-price">₹1,599/-</p>
+              <p class="product-category">Footwear</p>
+              <p class="card-text">Comfortable and stylish sneakers perfect for daily wear or casual outings.</p>
+              <div class="action-btns">
+                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateProductModal">Update</button>
+                <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Delete this product?');">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- Product Card Example - Footwear -->
+<div class="col-md-3 product-card mb-3">
+    <div class="card">
+      <img src="uploaded_img/NIKE+REVOLUTION+7+(PSV).png" alt="Casual Sneakers" class="card-img-top"/>
+      <div class="card-body">
+        <h5 class="product-name">Casual Sneakers</h5>
+        <p class="product-price">₹1,599/-</p>
+        <p class="product-category">Footwear</p>
+        <p class="card-text">Comfortable and stylish sneakers perfect for daily wear or casual outings.</p>
+        <div class="action-btns">
+          <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateProductModal">Update</button>
+          <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Delete this product?');">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+        <!-- Add more cards as needed -->
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form action="#" method="post" enctype="multipart/form-data" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductLabel">Add New Product</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" class="form-control" name="name" required />
+        </div>
+        <div class="form-group">
+          <label>Price (₹)</label>
+          <input type="number" class="form-control" name="price" required />
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" class="form-control" name="category" required />
+        </div>
+        <div class="form-group">
+          <label>Details</label>
+          <textarea class="form-control" name="details" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Upload Image</label>
+          <input type="file" class="form-control-file" name="image" required />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="add_product" class="btn btn-primary">Add Product</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Update Product Modal -->
+<div class="modal fade" id="updateProductModal" tabindex="-1" role="dialog" aria-labelledby="updateProductLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form action="#" method="post" enctype="multipart/form-data" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateProductLabel">Update Product</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Pre-fill with JS if needed -->
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" class="form-control" name="name" value="Blue Aviator" />
+        </div>
+        <div class="form-group">
+          <label>Price (₹)</label>
+          <input type="number" class="form-control" name="price" value="1299" />
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" class="form-control" name="category" value="sport" />
+        </div>
+        <div class="form-group">
+          <label>Details</label>
+          <textarea class="form-control" name="details" rows="3">Stylish and protective aviator sports look .</textarea>
+        </div>
+        <div class="form-group">
+          <label>Update Image</label>
+          <input type="file" class="form-control-file" name="image" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="update_product" class="btn btn-info">Update Product</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

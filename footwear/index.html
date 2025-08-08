@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FOOTWEAR-MAHII</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #e8f1fc;
+    }
+
+   
+
+    .card {
+      border-radius: 30px;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 350px;
+      border-radius: 30px;
+      object-fit: cover;
+    }
+
+    .products {
+      margin-top: 10px;
+    }
+
+    .title {
+      font-size: 34px;
+      color: #000;
+      margin-bottom: 25px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 10px 0;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card .btn {
+      background-color: #000;
+      color: #fff;
+      border-radius: 20px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .card img {
+        height: 250px;
+      }
+    }
+
+    .navbar {
+        background-color: #000;
+      }
+  
+      .navbar-brand, .nav-link {
+        color: #fff !important;
+      }
+      
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">FOOTWEAR</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto align-items-center">
+        <li class="nav-item">
+          <form class="form-inline mr-3" method="GET" action="#">
+            <input class="form-control mr-2" type="search" name="search" placeholder="Search Products...">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+        <li class="nav-item"><a class="nav-link" href="order_history.html">Order History</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="sn11.jpg" class="d-block w-100" alt="Footwear Banner">
+    </div>
+  </div>
+</div>
+
+<section class="products container-fluid p-3 mx-5">
+  <h1 class="title">Latest Products</h1>
+  <div class="row">
+
+    <!-- Product Card -->
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow-lg border-0">
+        <div class="position-relative">
+          <img src="uploaded_img/dunk-low-retro-shoes-.png" class="card-img-top p-3 rounded" alt="Shoe Name">
+          <span class="badge badge-pill badge-warning position-absolute p-2 shadow" style="top: 10px; right: 10px;">
+            ₹1999
+          </span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold text-dark">Nike Air Zoom</h5>
+          <p class="card-text text-muted">Comfortable running shoes with good grip.</p>
+          <p class="category font-italic text-secondary">Category: Sports</p>
+          <button class="btn btn-dark btn-block rounded-pill shadow-sm">
+            <i class="fas fa-shopping-cart"></i> <a  href="cart.html">Add to Cart</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repeat the above card for other products -->
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow-lg border-0">
+        <div class="position-relative">
+          <img src="uploaded_img/air-jordan-1-low-se-.png" class="card-img-top p-3 rounded" alt="Shoe Name">
+          <span class="badge badge-pill badge-warning position-absolute p-2 shadow" style="top: 10px; right: 10px;">
+            ₹2499
+          </span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold text-dark">Adidas Classic</h5>
+          <p class="card-text text-muted">Sleek and durable daily wear shoes.</p>
+          <p class="category font-italic text-secondary">Category: Casual</p>
+          <button class="btn btn-dark btn-block rounded-pill shadow-sm">
+            <i class="fas fa-shopping-cart"></i><a href="cart.html">Add to Cart</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more products as needed -->
+  </div>
+</section>
+
+<footer class="footer text-white">
+  <div class="text-center text-white p-3 h6">
+    &copy; 2025 ARPIT PATEL / All rights reserved.
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Order Management - EYEWEAR</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="admin_styles.css">
+   <style>
+/* Content styles */
+.content {
+    margin-left: 250px; /* Push content to the right of sidebar */
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    min-height: 100vh;
+    position: relative; /* Fix content within the page */
+    z-index: 0; /* Content below sidebar */
+}
+
+/* Order management section */
+.placed-orders {
+    padding: 0;
+}/* Filter form - position it at the top-right */
+.filter-container {
+    position: absolute; /* Ensure it stays in position relative to the content */
+    top: 20px;          /* Add space from the top of the content */
+    right: 2000px;        /* Space from the right side of the content */
+    display: flex;
+    align-items: center;
+    z-index: 2;         /* Make sure filter is above content */
+}
+
+.filter-container .form-control {
+    width: 200px;       /* Set a fixed width for the dropdown */
+}
+
+.filter-container button {
+    margin-left: 10px;  /* Add some space between the dropdown and button */
+}
+
+
+.form-control {
+    width: auto;
+}
+
+.form-control.mr-2 {
+    margin-right: 1rem;
+}
+
+.empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.order-details p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.btn-custom {
+    background-color: #28a745;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+}
+
+.btn-custom:hover {
+    background-color: #218838;
+}
+
+.btn-danger-custom {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+}
+
+.btn-danger-custom:hover {
+    background-color: #c82333;
+}
+
+/* Sidebar and Content Layout - Mobile Responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-top: 30px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .form-control.mr-2 {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .col-md-4 {
+        max-width: 100%;
+    }
+
+    /* Ensure filter stays at the top-right on mobile */
+    .filter-container {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 1rem;
+    }
+}
+
+ /* Sidebar Styles */
+ .sidebar {
+    width: 250px;
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar li {
+    padding: 12px;
+    border-bottom: 1px solid #004080; /* Slightly Lighter Blue */
+}
+
+.sidebar li a {
+    color: #e6f0ff; /* Light Blue */
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar li a:hover {
+    color: #cce0ff; /* Lighter Blue */
+}
+         </style>
+     </head>
+     <body>
+     <!-- Sidebar -->
+     <div class="sidebar  text-white p-3" style="width: 250px; height: 100vh;">
+         <h2 class="text-center mb-4">Admin Panel</h2>
+         <ul class="list-unstyled">
+             <li><a href="admin_dashboard.html" class="text-white d-block   rounded mb-2 hover-link">Dashboard</a></li>
+             <li><a href="admin_customer.html" class="text-white d-block   rounded mb-2 hover-link">Manages Customers</a></li>
+             <li><a href="admin_product.html" class="text-white d-block   rounded mb-2 hover-link">Manages Sales Products</a></li>
+             <li><a href="admin_order.html" class="text-white d-block   rounded mb-2 hover-link">Manages Sales Orders</a></li>
+             <li><a href="admin_sales_invoice.html" class="text-white d-block   rounded mb-2 hover-link">Manages Sales Invoice</a></li>
+             <li><a href="user_feedback.html" class="text-white d-block   rounded mb-2 hover-link">Manages feedback</a></li>
+             <li><a id="logoutLink" href="login.html" class="text-white d-block   rounded mb-2 hover-link">Logout</a></li>
+         </ul>
+     </div>
+   <!-- Content -->
+   <div class="content p-4 w-100">
+      <section class="placed-orders container-fluid">
+         <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-center">Manage Orders</h2>
+
+            <!-- Filter by payment status -->
+            <form class="d-flex">
+               <select class="form-control mr-2">
+                  <option value="" disabled selected>Filter by Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="shipping">Shipping</option>
+                  <option value="delivered">Delivered</option>
+               </select>
+               <button type="button" class="btn btn-primary">Filter</button>
+            </form>
+         </div>
+
+         <div class="row">
+            <!-- Static Example Order Card -->
+            <div class="col-md-4 mb-4">
+               <div class="card">
+                  <div class="card-header">
+                     Order: #1001
+                  </div>
+                  <div class="card-body">
+                     <div class="order-details">
+                        <p>User ID: <span>23</span></p>
+                        <p>Placed On: <span>2024-04-10</span></p>
+                        <p>Name: <span>John Doe</span></p>
+                        <p>Contact No: <span>9876543210</span></p>
+                        <p>Address:<br> <span>123 Street, City, Country</span></p>
+                        <p>Total Products:<br> <span>3</span></p>
+                        <p>Total Price: <span>₹1,499/-</span></p>
+                        <p>Payment Method: <span>Credit Card</span></p>
+                     </div>
+
+                     <form>
+                        <select class="form-control mb-3">
+                           <option value="" selected disabled>Pending</option>
+                           <option value="pending">Pending</option>
+                           <option value="shipping">Shipping</option>
+                           <option value="delivered">Delivered</option>
+                        </select>
+
+                        <div class="d-flex justify-content-between">
+                           <button type="button" class="btn btn-custom w-100">Update</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Add more static cards if needed -->
+            <p class="empty w-100 text-center">More orders will appear here.</p>
+         </div>
+      </section>
+   </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

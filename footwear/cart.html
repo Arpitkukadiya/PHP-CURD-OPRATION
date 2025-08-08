@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart (Demo)</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .cart-table td {
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .cart-img {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .btn-custom {
+            background-color: black;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: red;
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+        .navbar {
+            background-color: #000;
+          }
+      
+          .navbar-brand, .nav-link {
+            color: #fff !important;
+          }
+          
+      </style>
+    </head>
+    <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">FOOTWEAR</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto align-items-center">
+            <li class="nav-item">
+              <form class="form-inline mr-3" method="GET" action="#">
+                <input class="form-control mr-2" type="search" name="search" placeholder="Search Products...">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+              </form>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+            <li class="nav-item"><a class="nav-link" href="order_history.html">Order History</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-3">
+        <h1 class="text-center">Shopping Cart</h1>
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Demo Cart Item -->
+                <table class="cart-table">
+                    <tr>
+                        <td><img src="uploaded_img/dunk-low-retro-shoes-.png" class="cart-img" alt="Product Image"></td>
+                        <td>Nike Sports Shoes<br>₹2,999/-<br>Size: UK 9</td>
+                        <td>
+                            <form action="#" method="POST" class="d-flex">
+                                <input type="hidden" name="cart_id" value="1">
+                                <input type="number" min="1" max="5" value="2" class="form-control" name="p_qty">
+                                <select name="p_size" class="form-control ml-2">
+                                    <option value="UK 6">UK 6</option>
+                                    <option value="UK 7">UK 7</option>
+                                    <option value="UK 8">UK 8</option>
+                                    <option value="UK 9" selected>UK 9</option>
+                                    <option value="UK 10">UK 10</option>
+                                    <option value="UK 11">UK 11</option>
+                                    <option value="UK 12">UK 12</option>
+                                </select>
+                                <input type="submit" value="Update" name="update_qty" class="btn btn-warning ml-2">
+                            </form>
+                        </td>
+                        <td>₹5,998/-</td>
+                        <td>
+                            <a href="#" class="btn delete-btn">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Add more items as needed -->
+                <table class="cart-table">
+                    <tr>
+                        <td><img src="uploaded_img/NIKE+REVOLUTION+7+(PSV).png" class="cart-img" alt="Product Image"></td>
+                        <td>Adidas Running Shoes<br>₹3,499/-<br>Size: UK 10</td>
+                        <td>
+                            <form action="#" method="POST" class="d-flex">
+                                <input type="hidden" name="cart_id" value="2">
+                                <input type="number" min="1" max="5" value="1" class="form-control" name="p_qty">
+                                <select name="p_size" class="form-control ml-2">
+                                    <option value="UK 6">UK 6</option>
+                                    <option value="UK 7">UK 7</option>
+                                    <option value="UK 8">UK 8</option>
+                                    <option value="UK 9">UK 9</option>
+                                    <option value="UK 10" selected>UK 10</option>
+                                    <option value="UK 11">UK 11</option>
+                                    <option value="UK 12">UK 12</option>
+                                </select>
+                                <input type="submit" value="Update" name="update_qty" class="btn btn-warning ml-2">
+                            </form>
+                        </td>
+                        <td>₹3,499/-</td>
+                        <td>
+                            <a href="#" class="btn delete-btn">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card mt-4">
+                    <div class="card-header text-center">
+                        <h4>Bill Summary</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item">
+                                Nike Sports Shoes (₹2,999 x 2) - Size: UK 9
+                                <span class="float-right">₹5,998/-</span>
+                            </li>
+                            <li class="list-group-item">
+                                Adidas Running Shoes (₹3,499 x 1) - Size: UK 10
+                                <span class="float-right">₹3,499/-</span>
+                            </li>
+                        </ul>
+                        <p><strong>Total:</strong> ₹9,497/-</p>
+                        <a href="checkout.html" class="btn btn-custom btn-block">Proceed to Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Checkout</title>
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <style>
+      body {
+         font-family: "Roboto", sans-serif;
+         background-color: #f8f9fa;
+      }
+
+      .card {
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         border-radius: 10px;
+      }
+
+      .card-header {
+         background-color: rgb(0, 0, 0);
+         color: #fff;
+         text-align: center;
+         font-size: 1.25rem;
+      }
+
+      .btn-dark {
+         background-color: #000000;
+         color: #fff;
+         border-radius: 8px;
+      }
+
+      .btn-dark:hover {
+         background-color: #272727;
+      }
+
+      .grand-total {
+         font-size: 1.5rem;
+         font-weight: bold;
+         margin-top: 20px;
+         color: #0056b3;
+      }
+
+      .form-control {
+         border-radius: 10px;
+      }
+      .navbar {
+          background-color: #000;
+        }
+    
+        .navbar-brand, .nav-link {
+          color: #fff !important;
+        }
+        
+    </style>
+  </head>
+  <body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">FOOTWEAR</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto align-items-center">
+          <li class="nav-item">
+            <form class="form-inline mr-3" method="GET" action="#">
+              <input class="form-control mr-2" type="search" name="search" placeholder="Search Products...">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="order_history.html">Order History</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+   <div class="container mt-3">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="card">
+               <div class="card-header">Place Your Order</div>
+               <div class="card-body">
+                  <form >
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="name">Your Name:</label>
+                              <input type="text" id="name" placeholder="Enter your name" class="form-control"  pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces">
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="number">Your Number:</label>
+                              <input type="text" id="number" placeholder="Enter your number" class="form-control"  pattern="\d{10}" title="Number must be exactly 10 digits">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" placeholder="Enter your email" class="form-control" >
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="flat">Address Line 01:</label>
+                              <input type="text" id="flat" placeholder="e.g. flat number" class="form-control" >
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="street">Address Line 02:</label>
+                              <input type="text" id="street" placeholder="e.g. street name" class="form-control" >
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="city">City:</label>
+                              <input type="text" id="city" placeholder="e.g. Gandhinagar" class="form-control"  pattern="[A-Za-z\s]+">
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="state">State:</label>
+                              <input type="text" id="state" placeholder="e.g. Gujarat" class="form-control"  pattern="[A-Za-z\s]+">
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="country">Country:</label>
+                              <input type="text" id="country" placeholder="e.g. India" class="form-control"  pattern="[A-Za-z\s]+">
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="pin_code">Pin Code:</label>
+                              <input type="text" id="pin_code" placeholder="e.g. 382016" class="form-control"  pattern="\d{6}">
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="form-group">
+                        <label for="payment_method">Select Payment Method:</label>
+                        <select id="payment_method" class="form-control" >
+                           <option value="" selected disabled>Choose payment method</option>
+                           <option value="COD">Cash on Delivery (COD)</option>
+                           <option value="credit_card">Credit Card</option>
+                        </select>
+                     </div>
+
+                     <div id="credit_card_details" style="display: none;">
+                        <div class="form-group">
+                           <label for="card_name">Cardholder Name:</label>
+                           <input type="text" id="card_name" class="form-control" pattern="[A-Za-z\s]+">
+                        </div>
+                        <div class="form-group">
+                           <label for="card_number">Card Number:</label>
+                           <input type="text" id="card_number" class="form-control" pattern="\d{16}">
+                        </div>
+                        <div class="form-group">
+                           <label for="expiry_date">Expiry Date (MM/YY):</label>
+                           <input type="text" id="expiry_date" class="form-control" pattern="(0[1-9]|1[0-2])\/\d{2}">
+                        </div>
+                        <div class="form-group">
+                           <label for="cvv">CVV:</label>
+                           <input type="text" id="cvv" class="form-control" pattern="\d{3}">
+                        </div>
+                     </div>
+
+                     <a href="order_history.html" class="btn btn-dark btn-block">Place Order</a>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-md-6">
+            <div class="card">
+               <div class="card-header">Bill Summary</div>
+               <div class="card-body">
+                  <ul class="list-group mb-3">
+                     <li class="list-group-item">
+                        Demo Product A (₹500 x 2)
+                        <span class="float-right">₹1000/-</span>
+                     </li>
+                     <li class="list-group-item">
+                        Demo Product B (₹300 x 1)
+                        <span class="float-right">₹300/-</span>
+                     </li>
+                     <li class="list-group-item">
+                        Demo Product C (₹150 x 3)
+                        <span class="float-right">₹450/-</span>
+                     </li>
+                  </ul>
+                  <div class="grand-total text-dark">Grand Total: <span>₹1750</span></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <script>
+      document.getElementById('payment_method').addEventListener('change', function () {
+         const showCard = this.value === 'credit_card';
+         document.getElementById('credit_card_details').style.display = showCard ? 'block' : 'none';
+         ['card_name', 'card_number', 'expiry_date', 'cvv'].forEach(id => {
+            const field = document.getElementById(id);
+            if (showCard) {
+               field.setAttribute('required', true);
+            } else {
+               field.removeAttribute('required');
+            }
+         });
+      });
+   </script>
+</body>
+
+</html>

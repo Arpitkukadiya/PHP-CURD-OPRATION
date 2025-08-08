@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feedback - Admin Panel</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Font Awesome for star icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Your custom CSS -->
+    <style>
+        header {
+            background-color: #003366; /* Dark Blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Content Styles */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .widget {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .widget:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .widget-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #007bff;
+        }
+
+        .widget h3 {
+            color: #004080;
+            margin-bottom: 5px;
+        }
+
+        .widget p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Add more padding for content */
+        .container {
+            max-width: 1200px;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #003366; /* Dark Blue */
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            padding-top: 60px;
+            overflow-y: auto;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            padding: 12px;
+            border-bottom: 1px solid #004080; /* Slightly Lighter Blue */
+        }
+
+        .sidebar li a {
+            color: #e6f0ff; /* Light Blue */
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar li a:hover {
+            color: #cce0ff; /* Lighter Blue */
+        }
+
+        /* Rating Star Styles */
+        .star-rating {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar text-white p-3" style="width: 250px; height: 100vh;">
+        <h2 class="text-center mb-4">Admin Panel</h2>
+        <ul class="list-unstyled">
+            <li><a href="admin_dashboard.html" class="text-white d-block rounded mb-2 hover-link">Dashboard</a></li>
+            <li><a href="admin_customer.html" class="text-white d-block rounded mb-2 hover-link">Manages Customers</a></li>
+            <li><a href="admin_product.html" class="text-white d-block rounded mb-2 hover-link">Manages Sales Products</a></li>
+            <li><a href="admin_order.html" class="text-white d-block rounded mb-2 hover-link">Manages Sales Orders</a></li>
+            <li><a href="admin_sales_invoice.html" class="text-white d-block rounded mb-2 hover-link">Manages Sales Invoice</a></li>
+            <li><a href="user_feedback.html" class="text-white d-block rounded mb-2 hover-link">Manages feedback</a></li>
+            <li><a id="logoutLink" href="login.html" class="text-white d-block rounded mb-2 hover-link">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h1 class="text-center mb-4">User Feedback</h1>
+
+        <!-- Feedback 1 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Order ID: 101</h5>
+                <h6 class="card-subtitle mb-2 text-muted">User ID: 201</h6>
+                <p class="card-text"><strong>Feedback:</strong> Great service, fast delivery!</p>
+                <p class="card-text"><strong>Rating:</strong> <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></p>
+                <p class="card-text"><strong>Created At:</strong> 2025-04-22 10:15</p>
+            </div>
+        </div>
+
+        <!-- Feedback 2 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Order ID: 102</h5>
+                <h6 class="card-subtitle mb-2 text-muted">User ID: 202</h6>
+                <p class="card-text"><strong>Feedback:</strong> Quality of the product was excellent, but delivery took longer than expected.</p>
+                <p class="card-text"><strong>Rating:</strong> <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></p>
+                <p class="card-text"><strong>Created At:</strong> 2025-04-21 14:40</p>
+            </div>
+        </div>
+
+        <!-- Feedback 3 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Order ID: 103</h5>
+                <h6 class="card-subtitle mb-2 text-muted">User ID: 203</h6>
+                <p class="card-text"><strong>Feedback:</strong> Very satisfied with the product quality, will definitely order again.</p>
+                <p class="card-text"><strong>Rating:</strong> <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></p>
+                <p class="card-text"><strong>Created At:</strong> 2025-04-20 09:25</p>
+            </div>
+        </div>
+
+        <!-- Feedback 4 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Order ID: 104</h5>
+                <h6 class="card-subtitle mb-2 text-muted">User ID: 204</h6>
+                <p class="card-text"><strong>Feedback:</strong> The order was correct but the packaging could be improved.</p>
+                <p class="card-text"><strong>Rating:</strong> <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></p>
+                <p class="card-text"><strong>Created At:</strong> 2025-04-19 16:50</p>
+            </div>
+        </div>
+
+        <!-- Feedback 5 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Order ID: 105</h5>
+                <h6 class="card-subtitle mb-2 text-muted">User ID: 205</h6>
+                <p class="card-text"><strong>Feedback:</strong> Awesome customer service and the product exceeded my expectations!</p>
+                <p class="card-text"><strong>Rating:</strong> <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></p>
+                <p class="card-text"><strong>Created At:</strong> 2025-04-18 11:30</p>
+            </div>
+        </div>
+
+        <!-- Feedback 6 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Order ID: 106</h5>
+                <h6 class="card-subtitle mb-2 text-muted">User ID: 206</h6>
+                <p class="card-text"><strong>Feedback:</strong> Product was damaged during delivery. Need a replacement.</p>
+                <p class="card-text"><strong>Rating:</strong> <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></p>
+                <p class="card-text"><strong>Created At:</strong> 2025-04-17 13:10</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

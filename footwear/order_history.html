@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .order-card {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-card h3 {
+            color: #007bff;
+        }
+
+        .order-card p {
+            margin-bottom: 10px;
+        }
+
+        .order-card .btn {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        .modal-content {
+            border-radius: 8px;
+        }
+
+        .modal-header {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .modal-body table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .modal-body table th,
+        .modal-body table td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        .modal-body table th {
+            background-color: #f1f1f1;
+        }
+
+        /* Star Rating */
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 30px;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .star-rating input:checked~label {
+            color: #f39c12;
+        }
+
+        .navbar {
+            background-color: #000;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #fff !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">FOOTWEAR</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <form class="form-inline mr-3" method="GET" action="#">
+                            <input class="form-control mr-2" type="search" name="search" placeholder="Search Products...">
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order_history.html">Order History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-3">
+        <h2 class="text-center mb-4">Your Order History</h2>
+
+        <div class="row">
+            <!-- Order Card 1 -->
+            <div class="col-md-3">
+                <div class="order-card">
+                    <h4>Order: #1001</h4>
+                    <hr>
+                    <p><strong>Name:</strong> Ramesh Patel</p>
+                    <p><strong>Contact:</strong> 9876543210</p>
+                    <p><strong>Email:</strong> ramesh@example.com</p>
+                    <p><strong>Address:</strong> 45, GIDC Road, Ahmedabad</p>
+                    <p><strong>Total Price:</strong> ₹2,499</p>
+                    <p><strong>Order Status:</strong> Paid</p>
+                    <button class="btn btn-secondary w-100 btn-sm mb-1" data-toggle="modal" data-target="#feedbackModal1001">Give Feedback</button>
+                    <button class="btn btn-dark w-100" data-toggle="modal" data-target="#orderModal1001">View Product</button>
+                </div>
+            </div>
+
+            <!-- Order Card 2 -->
+            <div class="col-md-3">
+                <div class="order-card">
+                    <h4>Order: #1002</h4>
+                    <hr>
+                    <p><strong>Name:</strong> Priya Mehta</p>
+                    <p><strong>Contact:</strong> 9123456789</p>
+                    <p><strong>Email:</strong> priya@example.com</p>
+                    <p><strong>Address:</strong> 22, Ring Road, Surat</p>
+                    <p><strong>Total Price:</strong> ₹1,799</p>
+                    <p><strong>Order Status:</strong> Pending</p>
+                    <button class="btn btn-secondary w-100 btn-sm mb-1" data-toggle="modal" data-target="#feedbackModal1001">Give Feedback</button>
+                    <button class="btn btn-dark w-100" data-toggle="modal" data-target="#orderModal1001">View Product</button>
+                </div>
+            </div>
+
+            <!-- Order Card 3 -->
+            <div class="col-md-3">
+                <div class="order-card">
+                    <h4>Order: #1003</h4>
+                    <hr>
+                    <p><strong>Name:</strong> Ankit Shah</p>
+                    <p><strong>Contact:</strong> 9090909090</p>
+                    <p><strong>Email:</strong> ankit@example.com</p>
+                    <p><strong>Address:</strong> 12, Paldi, Vadodara</p>
+                    <p><strong>Total Price:</strong> ₹3,299</p>
+                    <p><strong>Order Status:</strong> Shipped</p>
+                    <button class="btn btn-dark w-100" data-toggle="modal" data-target="#orderModal1001">View Product</button>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Ordered Products -->
+    <div class="modal fade" id="orderModal1001" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel1001" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel1001">Ordered Products for Order: #1001</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Price (₹)</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Leather Shoes</td>
+                                <td>Footwear</td>
+                                <td>₹1,299</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Canvas Sneakers</td>
+                                <td>Footwear</td>
+                                <td>₹1,200</td>
+                                <td>1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Feedback -->
+    <div class="modal fade" id="feedbackModal1001" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel1001" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel1001">Give Feedback for Order: #1001</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="">
+                        <input type="hidden" name="order_id" value="1001">
+                        <div class="form-group">
+                            <label for="rating1001">Rating</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="rating" value="5" required>
+                                <label for="star5">★</label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4">★</label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3">★</label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2">★</label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1">★</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment1001">Comments</label>
+                            <textarea id="comment1001" class="form-control" name="comment" rows="4" placeholder="Write your feedback..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100">Submit Feedback</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

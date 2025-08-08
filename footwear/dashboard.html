@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 100px auto;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 40px 30px;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card i {
+      font-size: 3rem;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .card a {
+      text-decoration: none;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    .card a:hover {
+      background-color: #0056b3;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2.5rem;
+      color: #1a1a1a;
+    }
+
+    .logout-btn {
+      display: block;
+      width: 200px;
+      margin: 40px auto;
+      background-color: #dc3545;
+      color: white;
+      padding: 10px;
+      font-size: 1.2rem;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .logout-btn:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to the Footwear Dashboard</h1>
+  <br>
+  <center>
+  <div class="container">
+
+    <!-- Admin Panel -->
+    <div class="card">
+      <i class="fas fa-user-shield"></i>
+      <h3>Admin Panel</h3>
+      <a href="admin_dashboard.html">Go to Admin</a>
+    </div>
+
+
+    <!-- Job Seeker Panel -->
+    <div class="card">
+      <i class="fas fa-user-graduate"></i>
+      <h3>customer Panel</h3>
+      <a href="index.html">Go to customer</a>
+    </div>
+
+  </div>
+
+  <!-- Logout Button -->
+  <a href="login.html" class="logout-btn">Logout</a>
+
+</body>
+</html>

@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f0f8ff; /* Alice Blue */
+    color: #333;
+}
+
+.navbar {
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+}
+
+/* Login Styles */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #003366; /* Dark Blue */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #003366; /* Dark Blue */
+    outline: none;
+}
+
+.login-form button {
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #002244; /* Even Darker Blue */
+}
+
+.error-message {
+    color: #ff4d4d; /* Red */
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar li {
+    padding: 12px;
+    border-bottom: 1px solid #004080; /* Slightly Lighter Blue */
+}
+
+.sidebar li a {
+    color: #e6f0ff; /* Light Blue */
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar li a:hover {
+    color: #cce0ff; /* Lighter Blue */
+}
+
+/* Content Styles */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/* Dashboard Widgets */
+.widget {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.widget h3 {
+    margin-bottom: 10px;
+    color: #003366; /* Dark Blue */
+}
+
+.widget p {
+    color: #666;
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #002244; /* Even Darker Blue */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: static;
+        padding-top: 20px;
+        overflow-y: visible;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+/* Product Management Styles */
+.product-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form select,
+.product-form textarea,
+.product-form button,
+.product-form input[type="file"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.product-form input[type="text"]:focus,
+.product-form input[type="number"]:focus,
+.product-form select:focus,
+.product-form textarea:focus,
+.product-form input[type="file"]:focus {
+    border-color: #003366; /* Dark Blue */
+    outline: none;
+}
+
+.product-form button {
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-form button:hover {
+    background-color: #002244; /* Even Darker Blue */
+}
+
+.product-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-list li {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-list li .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.product-list li .actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-list li .actions button:hover {
+    background-color: #d9e6f2; /* Light Blue */
+}
+
+/* Customer Management Styles */
+.customer-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.customer-list li {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.customer-list li:hover {
+    transform: translateY(-5px);
+}
+
+.customer-list li .customer-info {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.customer-list li .customer-info h3 {
+    margin-bottom: 10px;
+    color: #003366; /* Dark Blue */
+}
+
+.customer-list li .customer-info p {
+    margin-bottom: 5px;
+}
+
+.customer-list li .customer-actions button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.customer-list li .customer-actions button:hover {
+    background-color: #d9e6f2; /* Light Blue */
+}
+
+/* Inventory Management Styles */
+.inventory-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.inventory-form input[type="text"],
+.inventory-form input[type="number"],
+.inventory-form select,
+.inventory-form textarea,
+.inventory-form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.inventory-form input[type="text"]:focus,
+.inventory-form input[type="number"]:focus,
+.inventory-form select:focus,
+.inventory-form textarea:focus {
+    border-color: #003366; /* Dark Blue */
+    outline: none;
+}
+
+.inventory-form button {
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.inventory-form button:hover {
+    background-color: #002244; /* Even Darker Blue */
+}
+
+.product-list li {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Report and Analysis Styles */
+.report {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.report h2 {
+    margin-bottom: 20px;
+    color: #003366; /* Dark Blue */
+}
+
+.report table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.report table th,
+.report table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.report table th {
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+}
+
+.report table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.report table tr:hover {
+    background-color: #e6f0ff; /* Light Blue */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #003366; /* Dark Blue */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Alerts */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #e6ffed; /* Light Green */
+    color: #2d6a4f; /* Dark Green */
+}
+
+.alert-error {
+    background-color: #ffe6e6; /* Light Red */
+    color: #a80000; /* Dark Red */
+}
+
+.alert-info {
+    background-color: #e6f7ff; /* Light Blue */
+    color: #0056b3; /* Dark Blue */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black with transparency */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #003366; /* Dark Blue */
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

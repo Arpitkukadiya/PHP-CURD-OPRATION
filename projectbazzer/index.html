@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHP Projects for Sale</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #0b0f19;
+        color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: #0e1a2b;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        border-bottom: 2px solid #1c2e4a;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: #0e1a2b;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        border-bottom: 2px solid #1c2e4a;
+      }
+
+      .navbar-brand {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #4fa3f7;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-brand:hover {
+        color: #3c82c6;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #f0f0f0;
+        margin-left: 20px;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #4fa3f7;
+      }
+
+      .navbar-toggler {
+        border: none;
+        outline: none;
+      }
+
+      .navbar-toggler-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        padding: 50px 0;
+        background-color: #0b0f19;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Form Container (Glassmorphism Effect) */
+      .form-container {
+        background: rgba(14, 26, 43, 0.9);
+        padding: 40px;
+        border-radius: 16px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .form-container:hover {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+      }
+
+      .form-title {
+        font-size: 2.6rem;
+        font-weight: 700;
+        color: #4fa3f7;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      label {
+        margin-top: 3px;
+      }
+
+      .form-control {
+        border-radius: 12px;
+        border: 1px solid #1c2e4a;
+        padding: 14px;
+        font-size: 1rem;
+        background-color: #0e1a2b;
+        color: #ffffff;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: #4fa3f7;
+        background-color: #0e1a2b;
+        color: whitesmoke;
+        box-shadow: 0 0 12px rgba(79, 163, 247, 0.4);
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background-color: #4fa3f7;
+        border: none;
+        padding: 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+        width: 100%;
+      }
+
+      .btn-primary:hover {
+        background-color: #3c82c6;
+        box-shadow: 0 8px 20px rgba(79, 163, 247, 0.3);
+      }
+
+      /* Marketing Content */
+      .marketing-content {
+        padding-left: 40px;
+      }
+
+      .marketing-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #4fa3f7;
+      }
+
+      .marketing-description {
+        font-size: 1.2rem;
+        color: #ccc;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+
+      .marketing-list li {
+        font-size: 1rem;
+        color: #bbb;
+        margin-bottom: 12px;
+      }
+
+      .marketing-list i {
+        color: #4fa3f7;
+        margin-right: 10px;
+      }
+
+      /* Project Cards */
+      .card {
+        background: linear-gradient(145deg, #162032, #0e1a2b);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+      }
+
+      .card:hover {
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+      }
+
+      .card img {
+        padding: 10px;
+        height: 280px;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .card-body h5 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #4fa3f7;
+        margin-bottom: 10px;
+      }
+
+      .card-body .price {
+        font-size: 1.2rem;
+        color: #ffffff;
+        font-weight: 500;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .card-body .btn-primary {
+        background-color: #4fa3f7;
+        border: none;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #ffffff;
+        border-radius: 30px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .card-body .btn-primary:hover {
+        background-color: #3c82c6;
+        box-shadow: 0 4px 16px rgba(79, 163, 247, 0.4);
+      }
+
+      .card-body .btn-primary i {
+        margin-right: 8px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #0e1a2b;
+        color: #ffffff;
+        padding: 30px;
+        font-size: 1.1rem;
+        text-align: center;
+        border-top: 2px solid #1c2e4a;
+      }
+
+      footer h5 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #4fa3f7;
+      }
+
+      .marketing-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        line-height: 2;
+      }
+
+      /* =================== Responsive Styles =================== */
+
+      /* Tablet (768px and up) */
+      @media (max-width: 768px) {
+        .navbar-brand {
+          font-size: 1.3rem;
+        }
+
+        .navbar-nav .nav-link {
+          font-size: 1rem;
+          margin-left: 10px;
+        }
+
+        .hero-section {
+          padding: 30px 15px;
+        }
+
+        .form-title {
+          font-size: 1.5rem;
+        }
+
+        .marketing-title {
+          font-size: 1.8rem;
+        }
+
+        .marketing-description {
+          font-size: 1rem;
+        }
+
+        .card-body h5 {
+          font-size: 1.2rem;
+        }
+
+        footer {
+          padding: 20px;
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Mobile (576px and down) */
+      @media (max-width: 576px) {
+        .navbar {
+          padding: 0.8rem 1rem;
+        }
+
+        .navbar-brand {
+          font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+          font-size: 0.9rem;
+          margin-left: 8px;
+        }
+
+        .hero-section {
+          padding: 20px 10px;
+        }
+
+        .marketing-title {
+          margin-top: 20px;
+        }
+
+        .marketing-content {
+          padding-left: 20px;
+        }
+
+        .form-container {
+          padding: 20px;
+          border-radius: 12px;
+        }
+
+        .form-title {
+          font-size: 2.3rem;
+        }
+
+        .card-body h5 {
+          font-size: 1.5rem;
+        }
+
+        .btn-primary {
+          padding: 10px;
+          font-size: 0.9rem;
+        }
+
+        footer {
+          font-size: 0.85rem;
+          padding: 0px;
+        }
+      }
+
+      /* Mobile Footer Navigation */
+      .mobile-footer {
+        display: none;
+        position: fixed;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        background-color: #0e1a2b;
+        padding: 9px 0;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        border-top: 2px solid #1c2e4a;
+      }
+
+      .footer-link {
+        color: #f0f0f0;
+        font-size: 13px;
+        text-align: center;
+        padding: 0px;
+        text-decoration: none;
+        display: inline-block;
+        width: 33%;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link i {
+        display: block;
+        font-size: 17px;
+        margin-bottom: 4px;
+      }
+
+      .footer-link:hover {
+        color: #4fa3f7;
+      }
+
+      /* Show only on small screens */
+      @media (max-width: 576px) {
+        .mobile-footer {
+          display: flex;
+          justify-content: space-around;
+        }
+
+        .footer {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="#">ProjectBazzar</a>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero-section" data-aos="fade-up" id="contact">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Side: Form -->
+          <div class="col-md-12 col-lg-6 col-sm-12" data-aos="zoom-in">
+            <div class="form-container">
+              <h1 class="form-title mb-2">Get In Touch</h1>
+              <h1
+                class="form-title mb-4"
+                style="font-size: 0.9rem; margin: 0; font-weight: 400"
+              >
+                For Your Project
+              </h1>
+              <form class="contact-form" id="contactForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Your Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Your Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Your Message</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="2"
+                    placeholder="Enter your message"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-block"
+                  id="submit"
+                >
+                  Get Project
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Side: Marketing Details -->
+          <div
+            class="col-md-12 col-lg-6 col-sm-12 marketing-content"
+            data-aos="fade-right"
+          >
+            <h1 class="marketing-title">PHP Projects for Sale</h1>
+            <p class="marketing-description">
+              Get complete source code and start your project instantly!
+            </p>
+            <ul class="marketing-list">
+              <li>
+                <i class="fas fa-check-circle"></i> Complete Source Code
+                Included
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Fast Delivery via Email
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Need help? Contact us
+                anytime on
+                <a
+                  href="#contact"
+                  style="
+                    color: #4fa3f7;
+                    text-decoration: none;
+                    font-weight: 500;
+                  "
+                  >Contact us</a
+                >.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Free installation support —
+                we’ll help you set it up!
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Let us know the name of the
+                website you want, and we’ll create it for you.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+
+    <section id="projects" class="py-5">
+      <div class="container" style="max-width: 1300px">
+        <h2
+          class="text-center mb-4 pb-2"
+          style="color: #4fa3f7; font-size: 2.4rem; font-weight: 600"
+        >
+          PHP Projects
+        </h2>
+        <div class="row" id="projectList">
+          <!-- Dynamic Projects will load here -->
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer data-aos="fade-up">
+      <h5>© 2025 PHP Projects Hub</h5>
+      <p>Made with ❤️ using HTML, CSS, Bootstrap, and PHP</p>
+    </footer>
+    <!-- Mobile Footer Navigation -->
+    <div class="mobile-footer">
+      <a href="#" class="footer-link">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="#projects" class="footer-link">
+        <i class="fas fa-briefcase"></i>
+        <span>Projects</span>
+      </a>
+      <a href="#contact" class="footer-link">
+        <i class="fas fa-envelope"></i>
+        <span>Contact</span>
+      </a>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="contact.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const projects = [
+        {
+          title: "E-Commerce Website",
+          image: "ecom.png",
+          pdf: "e-commerce system.pdf",
+        },
+        {
+          title: "Rental Ecommerce",
+          image: "r-e-com.png",
+          pdf: "Rental bus booking.pdf",
+        },
+        {
+          title: "Bus Booking System",
+          image: "bus.png",
+          pdf: "bus booking.pdf",
+        },
+        {
+          title: "Bus Rental System",
+          image: "r-bus.png",
+          pdf: "rental bus booking.pdf",
+        },
+        {
+          title: "Hotel Booking System",
+          image: "hb.png",
+          pdf: "Hotel booking.pdf",
+        },
+        {
+          title: "Cab Booking System",
+          image: "cab.png",
+          pdf: "cab booking.pdf",
+        },
+        {
+          title: "Delivery  System",
+          image: "dms.png",
+          pdf: "Delivery management System.pdf",
+        },
+        {
+          title: "Flight Booking System",
+          image: "flight.png",
+          pdf: "flight booking.pdf",
+        },
+      ];
+
+      // Load Projects into Cards
+      const projectList = document.getElementById("projectList");
+      projectList.innerHTML = "";
+      projects.forEach((project, index) => {
+        projectList.innerHTML += `
+<div class="col-md-6 col-lg-4 col-sm-12 mb-4" data-aos="flip-right">
+            <div class="card">
+                <img src="${project.image}" class="card-img-top" alt="${project.title}">
+                <div class="card-body">
+                    <h5>${project.title}</h5>
+                    <button class="btn btn-primary mt-3" onclick="downloadPDF('${project.pdf}')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                    
+                </div>
+            </div>
+        </div>`;
+      });
+
+      // Download PDF
+      function downloadPDF(fileName) {
+        const link = document.createElement("a");
+        link.href = fileName;
+        link.download = fileName;
+        link.click();
+      }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
+  </body>
+</html>

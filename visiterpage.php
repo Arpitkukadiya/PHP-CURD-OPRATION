@@ -35,7 +35,7 @@ $visit=$_SESSION['visit'];
     <title>Document</title>
 </head>
 <body>
-    <h1>welcom to the first page of website</h1>
+    <h1>welcom to website of ldrp student</h1>
     <?php 
       if($email)
       {

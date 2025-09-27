@@ -28,10 +28,10 @@ if($result){
 </head>
 <body>
     <form  method="POST">
-        <lable>name</lable>
+        <lable>name:</lable>
         <input type="name" name="name" >
         
-        <lable>email</lable>
+        <lable>email:</lable>
         <input type="email" name="email">
    <button type="submit" name="submit">submit</button>
 </form>
